@@ -1,10 +1,12 @@
-import React from 'react';
-import { Button } from 'antd';
+import React from 'react'
+import { Navbar } from './components/Navbar/Navbar'
+import { Footer } from './components/Footer/Footer'
 
-export const App: React.FC = () => (
-  <>
-    <Button>222</Button>
-    <img src="" alt="" />
-    <button className="butto" />
-  </>
-);
+export const App: React.FC = () => {
+	return (
+		<>
+			<Navbar />
+			<Footer />
+		</>
+	)
+}

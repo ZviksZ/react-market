@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './index.css';
-import { App } from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.scss'
+import { App } from './App'
+import { ThemeProvider, CssBaseline } from '@material-ui/core'
+import theme from './theme'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+	<React.StrictMode>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<App />
+		</ThemeProvider>
+	</React.StrictMode>,
+	document.getElementById('root'),
+)

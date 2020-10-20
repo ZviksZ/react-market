@@ -1,0 +1,17 @@
+.navbar {
+    .navbarToolbar {
+        flex-wrap: wrap;
+        background: #7b7b7b;
+    }
+    .navbarTitle {
+        flex-grow: 1;
+        color: #ffffff;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .navbarLink {
+        margin: 0 15px;
+        color: #ffffff;
+    }
+}
