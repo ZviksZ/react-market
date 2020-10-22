@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Footer component hasn\`t got changes 1`] = `
+<div>
+  <div
+    class="footer"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+    >
+      Copyright © 
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+        href="https://react-e-commerce.com/"
+      >
+        React E-commerce
+      </a>
+       
+      <span
+        class="date"
+      >
+        2020
+      </span>
+      .
+    </p>
+  </div>
+</div>
+`;

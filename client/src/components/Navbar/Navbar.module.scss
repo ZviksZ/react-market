@@ -1,17 +1,18 @@
 .navbar {
+    height: 64px;
     .navbarToolbar {
         flex-wrap: wrap;
-        background: #7b7b7b;
+        background: #d1d1d1;
     }
     .navbarTitle {
         flex-grow: 1;
-        color: #ffffff;
+        color: #000;
         &:hover {
             text-decoration: none;
         }
     }
     .navbarLink {
         margin: 0 15px;
-        color: #ffffff;
+        color:  #000;
     }
 }

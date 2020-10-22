@@ -4,9 +4,10 @@ import { Footer } from './components/Footer/Footer'
 
 export const App: React.FC = () => {
 	return (
-		<>
+		<div className="body">
 			<Navbar />
+
 			<Footer />
-		</>
+		</div>
 	)
 }
