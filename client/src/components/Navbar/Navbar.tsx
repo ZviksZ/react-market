@@ -1,11 +1,12 @@
-import * as React   from 'react'
-import { AppBar }   from '@material-ui/core'
-import Toolbar      from '@material-ui/core/Toolbar'
-import Typography   from '@material-ui/core/Typography'
-import Link         from '@material-ui/core/Link'
-import Button       from '@material-ui/core/Button'
-import s            from './Navbar.module.scss'
+import * as React from 'react'
+import { AppBar } from '@material-ui/core'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
+import Button from '@material-ui/core/Button'
+import s from './Navbar.module.scss'
 import { useState } from 'react'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
@@ -27,8 +28,9 @@ export const Navbar: React.FC = () => {
 							Catalog
 						</Link>
 					</nav>
-					<Button onClick={() => setBasketOpen(true)} variant="contained" color="secondary" className={s.navbarLink}>
-						Secondary
+					<Button onClick={() => setBasketOpen((prev) => !prev)} variant="contained" color="secondary" className={s.navbarBasketBtn}>
+						<span>Basket</span>
+						<AddShoppingCartIcon className={s.navbarBasketIcon} fontSize={'small'} />
 					</Button>
 				</Toolbar>
 			</AppBar>

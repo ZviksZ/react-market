@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing HomeBanner component should be correct snapshot 1`] = `
+<div>
+  <div
+    class="mainBanner"
+    style="background-image: url(2.jpg);"
+  />
+</div>
+`;
