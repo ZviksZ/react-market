@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button'
 import s from './Navbar.module.scss'
 import { useState } from 'react'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
+import Badge from '@material-ui/core/Badge'
+import { NavLink } from 'react-router-dom'
 
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
@@ -21,16 +23,14 @@ export const Navbar: React.FC = () => {
 						</Typography>
 					</Link>
 					<nav>
-						<Link variant="button" color="textPrimary" href="#" className={s.navbarLink}>
-							Main
-						</Link>
-						<Link variant="button" color="textPrimary" href="#" className={s.navbarLink}>
+						<NavLink className={s.navbarLink} to={'/catalog'}>
 							Catalog
-						</Link>
+						</NavLink>
 					</nav>
-					<Button onClick={() => setBasketOpen((prev) => !prev)} variant="contained" color="secondary" className={s.navbarBasketBtn}>
-						<span>Basket</span>
-						<AddShoppingCartIcon className={s.navbarBasketIcon} fontSize={'small'} />
+					<Button onClick={() => setBasketOpen((prev) => !prev)} variant="contained" color="primary" className={s.navbarBasketBtn}>
+						<Badge badgeContent={5} color="secondary">
+							<AddShoppingCartIcon fontSize={'small'} />
+						</Badge>
 					</Button>
 				</Toolbar>
 			</AppBar>

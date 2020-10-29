@@ -1,0 +1,64 @@
+{
+ "products": [
+    {
+      "_id": "5f625ff6bd97609c15525e2b4",
+      "name": "Laptop 9000",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "laptop"
+    },
+    {
+      "_id": "5f625ff6bd97609c15525e2b7",
+      "name": "Tablet 9001",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "tablet"
+    },
+    {
+      "_id": "5f625ff6bd97609c15525e2b5",
+      "name": "Tablet 9002",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "tablet"
+    },
+    {
+      "_id": "5f625ff6bd97609c15525e2b6",
+      "name": "Laptop 9003",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "laptop"
+    },
+    {
+      "_id": "5f625ff6bd97609c15525e2b9",
+      "name": "Laptop 9004",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "laptop"
+    },
+    {
+      "_id": "5f625ff6bd97609c15525e2b8",
+      "name": "Laptop 9005",
+      "price": 300,
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
+      "image": "/src/assets/img/2.jpg",
+      "purchase": 0,
+      "rating": 0,
+      "category": "laptop"
+    }
+ ]
+}

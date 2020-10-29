@@ -1,13 +1,15 @@
 import React from 'react'
 import { Navbar } from './components/Navbar/Navbar'
 import { Footer } from './components/Footer/Footer'
-import { Home } from './pages/Home/Home'
+import { useRoutes } from './routes'
 
 export const App: React.FC = () => {
+	const routes = useRoutes(false)
+
 	return (
 		<div className="body">
 			<Navbar />
-			<Home />
+			{routes}
 			<Footer />
 		</div>
 	)
