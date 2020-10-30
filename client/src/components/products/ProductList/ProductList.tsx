@@ -17,6 +17,8 @@ export const ProductList: React.FC<Props> = ({ maxCount, products }) => {
 						if (index < maxCount) {
 							return <Product item={product} key={product._id} />
 						}
+					} else {
+						return <Product item={product} key={product._id} />
 					}
 				})}
 			</div>

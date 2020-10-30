@@ -5,9 +5,9 @@
       "name": "Laptop 9000",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "rating": 0,
+      "rating": 5,
       "category": "laptop"
     },
     {
@@ -15,7 +15,7 @@
       "name": "Tablet 9001",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
       "rating": 0,
       "category": "tablet"
@@ -25,7 +25,7 @@
       "name": "Tablet 9002",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
       "rating": 0,
       "category": "tablet"
@@ -35,9 +35,9 @@
       "name": "Laptop 9003",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "rating": 0,
+      "rating": 3,
       "category": "laptop"
     },
     {
@@ -45,7 +45,7 @@
       "name": "Laptop 9004",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
       "rating": 0,
       "category": "laptop"
@@ -55,7 +55,7 @@
       "name": "Laptop 9005",
       "price": 300,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
-      "image": "/src/assets/img/2.jpg",
+      "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
       "rating": 0,
       "category": "laptop"

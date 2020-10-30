@@ -17,11 +17,9 @@ export const Navbar: React.FC = () => {
 		<>
 			<AppBar position="fixed" className={s.navbar}>
 				<Toolbar className={s.navbarToolbar}>
-					<Link variant="button" color="textPrimary" href="#" className={s.navbarTitle}>
-						<Typography variant="h6" noWrap>
-							React e-commerce
-						</Typography>
-					</Link>
+					<NavLink to={'/'} className={s.navbarTitle}>
+						React e-commerce
+					</NavLink>
 					<nav>
 						<NavLink className={s.navbarLink} to={'/catalog'}>
 							Catalog

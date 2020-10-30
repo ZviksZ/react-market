@@ -5,6 +5,7 @@
     border-radius: 4px;
     transition: .3s ease;
     text-decoration: none;
+    overflow: hidden;
     @media screen and (min-width: 1000px) {
         &:hover {
             transform: translateY(-15px);
@@ -26,12 +27,18 @@
             color: #000;
             margin-bottom: 9px;
             font-weight: 700;
+            margin-top: 9px;
         }
         .text {
             font-size: 14px;
             line-height: 20px;
             margin-bottom: 32px;
             color: #929DA6;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         .productPrice {
             display: flex;
@@ -42,6 +49,14 @@
             font-size: 22px;
             color: #000;
             font-weight: 700;
+        }
+    }
+    .addCartIcon {
+        color: #3f51b5 !important;
+        @media screen and (min-width: 1000px) {
+            &:hover {
+                color: #4456d6 !important;
+            }
         }
     }
 }
