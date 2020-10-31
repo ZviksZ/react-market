@@ -4,22 +4,21 @@ import { RootState } from '../../store/store'
 import { ProductList } from '../../components/products/ProductList/ProductList'
 import { useEffect } from 'react'
 import { fetchProducts } from '../../store/ducks/product/actionCreators'
+import { LoadingState } from '../../store/ducks/product/contracts/state'
+import { Loader } from '../../components/Loader/Loader'
 
 export const Catalog: React.FC = () => {
-	const dispatch = useDispatch()
-	const products = useSelector((state: RootState) => state.products.items)
+	const { loadingState, items } = useSelector((state: RootState) => state.products)
 
-	console.log(products)
-
-	useEffect(() => {
-		dispatch(fetchProducts())
-	}, [dispatch])
+	if (loadingState === LoadingState.LOADING) {
+		return <Loader />
+	}
 
 	return (
 		<>
 			<div className="container">
 				<h2 className="h1">Catalog</h2>
-				<ProductList products={products} />
+				<ProductList products={items} isHorizontal={true} />
 			</div>
 		</>
 	)

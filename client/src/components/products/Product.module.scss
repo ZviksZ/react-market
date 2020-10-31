@@ -20,6 +20,8 @@
         background-size: cover;
     }
     .productInfo {
+        display: flex;
+        flex-direction: column;
         padding: 10px 17px;
         .title {
             font-size: 18px;
@@ -59,6 +61,29 @@
             }
         }
     }
+    &.productHorizontal {
+        display: flex;
+        min-height: 230px;
+        .productImage {
+            width: 33.333333%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: cover;
+            background-size: cover;
+        }
+        .productInfo {
+            width: 66.666666%;
+            .title {
+                font-size: 20px;
+                line-height: 26px;
+                margin-top: 0;
+            }
+            .productPrice {
+                margin-top: auto;
+            }
+        }
+    }
 }
 .productList {
     display: flex;
@@ -67,6 +92,9 @@
     .product {
         width: calc(25% - 32px);
         margin: 0 16px 32px;
+        &.productHorizontal {
+            width: 100%;
+        }
     }
 }
 

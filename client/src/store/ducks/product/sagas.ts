@@ -7,7 +7,6 @@ import { ProductsApi } from '../../../services/api/productsApi'
 export function* fetchTweetsRequest() {
 	try {
 		const items = yield call(ProductsApi.fetchProducts)
-		console.log(items)
 		yield put(setProducts(items))
 	} catch (error) {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
