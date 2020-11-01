@@ -14,9 +14,13 @@ export interface IProduct {
 	purchase: number
 	rating: number
 	category: string
+	color: string
+	diagonal: number
 }
 
 export interface ProductsState {
 	items: IProduct[]
 	loadingState: LoadingState
+	cart: IProduct[]
+	singleProduct: IProduct | null
 }

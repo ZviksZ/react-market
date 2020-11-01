@@ -11,6 +11,10 @@ export const ProductsApi = {
 		const { data } = await axios.get<IProduct[]>('/products')
 		return data
 	},
+	async fetchProductData(id: string): Promise<IProduct> {
+		const { data } = await axios.get<IProduct>('/products?_id=' + id)
+		return data
+	},
 	/*async fetchProducts(): Promise<IProduct[]> {
 		const { data } = await axios.get<Response<IProduct[]>>('/products')
 		return data.data

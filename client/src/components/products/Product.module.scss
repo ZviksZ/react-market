@@ -98,3 +98,31 @@
     }
 }
 
+.productDetail {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 70px;
+    .productImage {
+        display: flex;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &:before {
+            float: left;
+            display: block;
+            content: '';
+            padding-top: 45%;
+        }
+    }
+    .propsList {
+        .item {
+            display: flex;
+            align-items: center;
+            .name, .info {
+                flex: 0 0 50%;
+            }
+        }
+    }
+}
