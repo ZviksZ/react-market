@@ -24,9 +24,11 @@ export const CatalogDetail: React.FC = () => {
 
 	return (
 		<>
-			<div className="container">
-				<ProductDetail item={singleProduct} />
-			</div>
+			<section className="section">
+				<div className="container">
+					<ProductDetail item={singleProduct} />
+				</div>
+			</section>
 		</>
 	)
 }

@@ -13,6 +13,7 @@ import { RootState } from '../../store/store'
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
 	const { cart } = useSelector((state: RootState) => state.products)
+	const cartCount = cart.reduce((acc, item) => acc + item.count, 0)
 
 	return (
 		<>
@@ -27,7 +28,7 @@ export const Navbar: React.FC = () => {
 						</NavLink>
 					</nav>
 					<Button onClick={() => setBasketOpen((prev) => !prev)} variant="contained" color="primary" className={s.navbarBasketBtn}>
-						<Badge badgeContent={cart.length} color="secondary">
+						<Badge badgeContent={cartCount} color="secondary">
 							<AddShoppingCartIcon fontSize={'small'} />
 						</Badge>
 					</Button>

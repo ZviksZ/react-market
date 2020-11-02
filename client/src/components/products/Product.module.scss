@@ -102,6 +102,12 @@
     display: flex;
     flex-direction: column;
     padding: 0 0 70px;
+    .productHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
     .productImage {
         display: flex;
         width: 100%;
@@ -116,12 +122,32 @@
             padding-top: 45%;
         }
     }
+    .productDesc {
+        font-size: 18px;
+        line-height: 21px;
+        color: #7f7f7f
+    }
     .propsList {
         .item {
+            position: relative;
             display: flex;
             align-items: center;
+            border: 1px solid #c9c9c9;
+            min-height: 52px;
             .name, .info {
                 flex: 0 0 50%;
+                padding: 10px 5px;
+            }
+            .name {
+                font-weight: 700;
+            }
+            .divider {
+                width: 1px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                background: #c9c9c9;
             }
         }
     }

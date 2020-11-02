@@ -31,8 +31,8 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 		case ProductActionsType.SET_LOADING_STATE:
 			draft.loadingState = action.payload
 			break
-		case ProductActionsType.ADD_TO_CART:
-			draft.cart = [...draft.cart, action.payload]
+		case ProductActionsType.SET_TO_CART:
+			draft.cart = action.payload
 
 		default:
 			break

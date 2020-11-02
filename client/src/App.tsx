@@ -3,7 +3,7 @@ import { Navbar } from './components/Navbar/Navbar'
 import { Footer } from './components/Footer/Footer'
 import { useRoutes } from './routes'
 import { useDispatch } from 'react-redux'
-import { fetchProducts } from './store/ducks/product/actionCreators'
+import { fetchProducts, getCart } from './store/ducks/product/actionCreators'
 
 export const App: React.FC = () => {
 	const dispatch = useDispatch()
@@ -11,6 +11,7 @@ export const App: React.FC = () => {
 
 	useEffect(() => {
 		dispatch(fetchProducts())
+		dispatch(getCart())
 	}, [dispatch])
 
 	return (

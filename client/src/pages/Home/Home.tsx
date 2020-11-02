@@ -18,7 +18,7 @@ export const Home: React.FC = () => {
 
 	return (
 		<>
-			<div className="section">
+			<section className="section">
 				<div className="container">
 					<h2 className="h2">Best sellers</h2>
 					<ProductList maxCount={4} products={items} />
@@ -30,7 +30,7 @@ export const Home: React.FC = () => {
 						</NavLink>
 					</div>
 				</div>
-			</div>
+			</section>
 		</>
 	)
 }

@@ -16,10 +16,12 @@ export const Catalog: React.FC = () => {
 
 	return (
 		<>
-			<div className="container">
-				<h2 className="h1">Catalog</h2>
-				<ProductList products={items} isHorizontal={true} />
-			</div>
+			<section className="section">
+				<div className="container">
+					<h2 className="h1">Catalog</h2>
+					<ProductList products={items} isHorizontal={true} />
+				</div>
+			</section>
 		</>
 	)
 }
