@@ -18,7 +18,11 @@ export const NavbarCartItem: React.FC<Props> = ({ item }) => {
 					<div className={s.price}>Price: {item.price}$</div>
 				</div>
 				<div className={s.right}>
-					<div className={s.count}>{item.count}</div>
+					<div className={s.count}>
+						<button>-</button>
+						<span>{item.count}</span>
+						<button>+</button>
+					</div>
 					<IconButton aria-label="delete">
 						<DeleteIcon fontSize="small" />
 					</IconButton>
