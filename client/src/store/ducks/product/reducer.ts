@@ -15,6 +15,7 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 			draft.items = action.payload
 			draft.loadingState = LoadingState.LOADED
 			break
+
 		case ProductActionsType.SET_PRODUCT:
 			draft.singleProduct = action.payload
 			draft.loadingState = LoadingState.LOADED
@@ -24,6 +25,7 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 			draft.items = []
 			draft.loadingState = LoadingState.LOADING
 			break
+
 		case ProductActionsType.GET_PRODUCT:
 			draft.loadingState = LoadingState.LOADING
 			break
@@ -31,8 +33,10 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 		case ProductActionsType.SET_LOADING_STATE:
 			draft.loadingState = action.payload
 			break
+
 		case ProductActionsType.SET_TO_CART:
 			draft.cart = action.payload
+			break
 
 		default:
 			break

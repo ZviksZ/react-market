@@ -35,3 +35,70 @@
         margin: 0 15px;
     }
 }
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 54px;
+    right: 0;
+    min-width: 320px;
+    max-height: 50vh;
+    background: #fff;
+    color: #151515;
+    overflow: auto;
+    padding: 10px 17px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    .cartHeader {
+        padding: 10px 0;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .cartItem {
+        display: flex;
+        padding: 10px 0;
+        .image {
+            display: flex;
+            width: 100px;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-background-size: cover;
+            background-size: cover;
+            &:before {
+                display: block;
+                float: left;
+                content: '';
+                padding-top: 66%;
+            }
+        }
+        .info {
+            width: 100%;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            .left {
+                display: flex;
+                flex-direction: column;
+                .name {
+                    font-weight: 700;
+                }
+            }
+            .right {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+            }
+        }
+    }
+    .cartItem + .cartItem {
+        border-top: 1px solid #ebebeb;
+    }
+
+    .cartFooter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+}

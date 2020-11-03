@@ -14,6 +14,7 @@ export function* fetchProductsRequest() {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}
 }
+
 export function* getProductRequest({ id }: GetProductActionInterface) {
 	try {
 		const product = yield call(ProductsApi.fetchProductData, id)
@@ -22,6 +23,7 @@ export function* getProductRequest({ id }: GetProductActionInterface) {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}
 }
+
 export function* addToCartRequest({ item }: AddToCartActionInterface) {
 	try {
 		const data = {
@@ -54,6 +56,7 @@ export function* addToCartRequest({ item }: AddToCartActionInterface) {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}
 }
+
 export function* getCartRequest() {
 	try {
 		const cookies = Cookie.getCookie('productsCart')
@@ -67,6 +70,7 @@ export function* getCartRequest() {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}
 }
+
 export function* productsSaga() {
 	yield takeLatest(ProductActionsType.FETCH_PRODUCTS, fetchProductsRequest)
 	yield takeLatest(ProductActionsType.GET_PRODUCT, getProductRequest)

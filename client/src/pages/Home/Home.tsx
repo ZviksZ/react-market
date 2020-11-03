@@ -1,16 +1,15 @@
-import * as React from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { ProductList } from '../../components/products/ProductList/ProductList'
-import { fetchProducts, setProducts } from '../../store/ducks/product/actionCreators'
-import { RootState } from '../../store/store'
-import { NavLink } from 'react-router-dom'
-import { Button } from '@material-ui/core'
-import { Loader } from '../../components/Loader/Loader'
-import { LoadingState } from '../../store/ducks/product/contracts/state'
+import * as React         from 'react'
+import { useSelector }    from 'react-redux'
+import { ProductList }    from '../../components/products/ProductList/ProductList'
+import { RootState }      from '../../store/store'
+import { NavLink }        from 'react-router-dom'
+import { Button }         from '@material-ui/core'
+import { Loader }         from '../../components/Loader/Loader'
+import { LoadingState }   from '../../store/ducks/product/contracts/state'
+import { selectProducts } from '../../store/ducks/product/selectors'
 
 export const Home: React.FC = () => {
-	const { loadingState, items } = useSelector((state: RootState) => state.products)
+	const { loadingState, items } = useSelector(selectProducts)
 
 	if (loadingState === LoadingState.LOADING) {
 		return <Loader />

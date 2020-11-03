@@ -1,16 +1,17 @@
-import * as React from 'react'
-import { useParams } from 'react-router'
+import * as React                   from 'react'
+import { useParams }                from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getProduct, setProduct } from '../../store/ducks/product/actionCreators'
-import { RootState } from '../../store/store'
-import { ProductDetail } from '../../components/products/ProductDetail/ProductDetail'
+import { useEffect }                from 'react'
+import { getProduct, setProduct }   from '../../store/ducks/product/actionCreators'
+import { RootState }                from '../../store/store'
+import { ProductDetail }            from '../../components/products/ProductDetail/ProductDetail'
+import { selectSingleProductData }  from '../../store/ducks/product/selectors'
 
 export const CatalogDetail: React.FC = () => {
 	const dispatch = useDispatch()
 	const params: { id?: string } = useParams()
 	const id = params.id
-	const singleProduct = useSelector((state: RootState) => state.products.singleProduct)
+	const singleProduct = useSelector(selectSingleProductData)
 
 	useEffect(() => {
 		if (id) {

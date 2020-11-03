@@ -9,10 +9,12 @@ import Badge from '@material-ui/core/Badge'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
+import { selectProducts } from '../../store/ducks/product/selectors'
+import { NavbarCart } from './NavbarCart/NavbarCart'
 
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
-	const { cart } = useSelector((state: RootState) => state.products)
+	const { cart } = useSelector(selectProducts)
 	const cartCount = cart.reduce((acc, item) => acc + item.count, 0)
 
 	return (
@@ -32,6 +34,8 @@ export const Navbar: React.FC = () => {
 							<AddShoppingCartIcon fontSize={'small'} />
 						</Badge>
 					</Button>
+
+					{basketOpen && <NavbarCart setOpen={setBasketOpen} cartItems={cart} cartCount={cartCount} />}
 				</Toolbar>
 			</AppBar>
 		</>
