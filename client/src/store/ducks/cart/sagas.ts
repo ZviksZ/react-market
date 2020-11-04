@@ -1,9 +1,9 @@
-import { put, takeLatest, select }                                                                                                                           from 'redux-saga/effects'
-import { setProductToCart }                                                                                                                                  from './actionCreators'
+import { put, takeLatest, select } from 'redux-saga/effects'
+import { setProductToCart } from './actionCreators'
 import { AddToCartActionInterface, CartActionsType, DecreaseProductCountActionInterface, DeleteProductActionInterface, IncreaseProductCountActionInterface } from './contracts/actionTypes'
-import { CartProduct }                                                                                                                                       from './contracts/state'
-import { RootState }                                                                                                                                         from '../../store'
-import { Cookie }                                                                                                                                            from '../../../services/helpers/cookie'
+import { CartProduct } from './contracts/state'
+import { RootState } from '../../store'
+import { Cookie } from '../../../services/helpers/cookie'
 
 export function* getCartRequest() {
 	try {
@@ -55,7 +55,6 @@ export function* increaseCountRequest({ id }: IncreaseProductCountActionInterfac
 			}
 			return cartItem
 		})
-
 		const jsonResponse = JSON.stringify(cart)
 		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
 
@@ -63,15 +62,22 @@ export function* increaseCountRequest({ id }: IncreaseProductCountActionInterfac
 	} catch (error) {}
 }
 
+// eslint-disable-next-line
 export function* decreaseCountRequest({ id }: DecreaseProductCountActionInterface) {
 	try {
 		let cart = yield select((state: RootState) => state.cart.cart)
-		cart = cart.map((cartItem: CartProduct) => {
-			if (cartItem._id === id) {
-				return { ...cartItem, count: cartItem.count > 0 ? cartItem.count - 1 : 0 }
-			}
-			return cartItem
-		})
+
+		cart = cart
+			.map((cartItem: CartProduct) => {
+				if (cartItem._id === id) {
+					if (cartItem.count > 1) {
+						return { ...cartItem, count: cartItem.count - 1 }
+					}
+				} else {
+					return cartItem
+				}
+			})
+			.filter((cartItem: CartProduct) => cartItem !== undefined)
 
 		const jsonResponse = JSON.stringify(cart)
 		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })

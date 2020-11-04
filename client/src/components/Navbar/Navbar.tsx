@@ -14,6 +14,7 @@ import { selectCart } from '../../store/ducks/cart/selectors'
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
 	const { cart } = useSelector(selectCart)
+	console.log(cart)
 	const cartCount = cart.reduce((acc, item) => acc + item.count, 0)
 
 	return (
