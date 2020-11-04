@@ -5,7 +5,7 @@ import { CartProduct } from './contracts/state'
 import { RootState } from '../../store'
 import { Cookie } from '../../../services/helpers/cookie'
 
-export function* getCartRequest() {
+export function* getCartRequest(){
 	try {
 		const cookies = Cookie.getCookie('productsCart')
 		const data = JSON.parse(cookies + '')

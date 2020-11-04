@@ -11,9 +11,10 @@ type Props = {
 	cartItems: CartProduct[]
 	cartCount: number
 	setOpen: (isOpen: boolean) => void
+	cartSum: number
 }
 
-export const NavbarCart: React.FC<Props> = ({ cartItems, cartCount, setOpen }) => {
+export const NavbarCart: React.FC<Props> = ({ cartSum, cartItems, cartCount, setOpen }) => {
 	const dispatch = useDispatch()
 
 	const clearCartFn = () => {
@@ -24,7 +25,10 @@ export const NavbarCart: React.FC<Props> = ({ cartItems, cartCount, setOpen }) =
 		<>
 			<ClickAwayListener onClickAway={() => setOpen(false)}>
 				<div className={s.cart}>
-					<div className={s.cartHeader}>Total products: {cartCount}</div>
+					<div className={s.cartHeader}>
+						<span>Products: {cartCount}</span>
+						<span>Sum: {cartSum}$</span>
+					</div>
 					<div className={s.cartList}>
 						{cartItems.map((item) => (
 							<NavbarCartItem key={item._id} item={item} />

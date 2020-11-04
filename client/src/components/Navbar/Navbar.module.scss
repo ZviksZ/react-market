@@ -50,6 +50,9 @@
     padding: 10px 17px;
     box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.3);
     .cartHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 10px 0;
         font-size: 22px;
         font-weight: 700;
