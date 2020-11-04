@@ -8,13 +8,12 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import Badge from '@material-ui/core/Badge'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
-import { selectProducts } from '../../store/ducks/product/selectors'
 import { NavbarCart } from './NavbarCart/NavbarCart'
+import { selectCart } from '../../store/ducks/cart/selectors'
 
 export const Navbar: React.FC = () => {
 	const [basketOpen, setBasketOpen] = useState<boolean>(false)
-	const { cart } = useSelector(selectProducts)
+	const { cart } = useSelector(selectCart)
 	const cartCount = cart.reduce((acc, item) => acc + item.count, 0)
 
 	return (

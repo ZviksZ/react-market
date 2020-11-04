@@ -17,17 +17,9 @@ export interface IProduct {
 	color: string
 	diagonal: number
 }
-export interface CartProduct {
-	_id: string
-	name: string
-	price: number
-	image: string
-	count: number
-}
 
 export interface ProductsState {
 	items: IProduct[]
 	loadingState: LoadingState
-	cart: CartProduct[]
 	singleProduct: IProduct | null
 }

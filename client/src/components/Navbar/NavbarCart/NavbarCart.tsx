@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { CartProduct } from '../../../store/ducks/product/contracts/state'
 import { Button } from '@material-ui/core'
 import s from '../Navbar.module.scss'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import { NavbarCartItem } from './NavbarCartItem'
+import { CartProduct } from '../../../store/ducks/cart/contracts/state'
+import { useDispatch } from 'react-redux'
+import { clearCart } from '../../../store/ducks/cart/actionCreators'
 
 type Props = {
 	cartItems: CartProduct[]
@@ -12,6 +14,12 @@ type Props = {
 }
 
 export const NavbarCart: React.FC<Props> = ({ cartItems, cartCount, setOpen }) => {
+	const dispatch = useDispatch()
+
+	const clearCartFn = () => {
+		dispatch(clearCart())
+	}
+
 	return (
 		<>
 			<ClickAwayListener onClickAway={() => setOpen(false)}>
@@ -23,7 +31,7 @@ export const NavbarCart: React.FC<Props> = ({ cartItems, cartCount, setOpen }) =
 						))}
 					</div>
 					<div className={s.cartFooter}>
-						<Button variant="contained" size="small" color="primary">
+						<Button variant="contained" size="small" color="primary" onClick={clearCartFn}>
 							clear cart
 						</Button>
 						<Button variant="contained" size="small" color="secondary">

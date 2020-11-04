@@ -1,13 +1,12 @@
 import {
-	AddToCartActionInterface,
-	FetchProductsActionInterface, GetCartActionInterface,
+	FetchProductsActionInterface,
 	GetProductActionInterface,
 	ProductActionsType,
 	SetProductActionInterface,
 	SetProductsActionInterface,
-	SetProductsLoadingStateActionInterface, SetToCartActionInterface,
+	SetProductsLoadingStateActionInterface,
 } from './contracts/actionTypes'
-import { CartProduct, IProduct, LoadingState, ProductsState } from './contracts/state'
+import { IProduct, LoadingState, ProductsState } from './contracts/state'
 
 export const setProducts = (payload: ProductsState['items']): SetProductsActionInterface => ({
 	type: ProductActionsType.SET_PRODUCTS,
@@ -20,9 +19,6 @@ export const setProduct = (payload: IProduct | null): SetProductActionInterface 
 export const fetchProducts = (): FetchProductsActionInterface => ({
 	type: ProductActionsType.FETCH_PRODUCTS,
 })
-export const getCart = (): GetCartActionInterface => ({
-	type: ProductActionsType.GET_CART,
-})
 export const getProduct = (id: string): GetProductActionInterface => ({
 	type: ProductActionsType.GET_PRODUCT,
 	id,
@@ -31,20 +27,5 @@ export const setProductsLoadingState = (payload: LoadingState): SetProductsLoadi
 	type: ProductActionsType.SET_LOADING_STATE,
 	payload,
 })
-export const addProductToCart = (item: IProduct): AddToCartActionInterface => ({
-	type: ProductActionsType.ADD_TO_CART,
-	item,
-})
-export const setProductToCart = (payload: CartProduct[]): SetToCartActionInterface => ({
-	type: ProductActionsType.SET_TO_CART,
-	payload,
-})
 
-export type ProductsActions =
-	| SetProductActionInterface
-	| GetProductActionInterface
-	| SetProductsActionInterface
-	| FetchProductsActionInterface
-	| SetProductsLoadingStateActionInterface
-	| AddToCartActionInterface
-	| SetToCartActionInterface
+export type ProductsActions = SetProductActionInterface | GetProductActionInterface | SetProductsActionInterface | FetchProductsActionInterface | SetProductsLoadingStateActionInterface

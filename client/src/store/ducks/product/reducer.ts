@@ -3,10 +3,9 @@ import { ProductsActions } from './actionCreators'
 import { ProductActionsType } from './contracts/actionTypes'
 import { LoadingState, ProductsState } from './contracts/state'
 
-const initialTweetsState: ProductsState = {
+const initialProductsState: ProductsState = {
 	items: [],
 	loadingState: LoadingState.NEVER,
-	cart: [],
 	singleProduct: null,
 }
 export const productsReducer = produce((draft: Draft<ProductsState>, action: ProductsActions) => {
@@ -34,11 +33,7 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 			draft.loadingState = action.payload
 			break
 
-		case ProductActionsType.SET_TO_CART:
-			draft.cart = action.payload
-			break
-
 		default:
 			break
 	}
-}, initialTweetsState)
+}, initialProductsState)

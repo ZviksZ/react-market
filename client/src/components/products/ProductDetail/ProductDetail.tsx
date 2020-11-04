@@ -3,9 +3,9 @@ import s from '../Product.module.scss'
 import { IProduct } from '../../../store/ducks/product/contracts/state'
 import { Rating } from '@material-ui/lab'
 import { Button } from '@material-ui/core'
-import { addProductToCart } from '../../../store/ducks/product/actionCreators'
 import { useDispatch } from 'react-redux'
 import { Loader } from '../../Loader/Loader'
+import { addProductToCart } from '../../../store/ducks/cart/actionCreators'
 
 type Props = {
 	item: IProduct | null

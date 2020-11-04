@@ -1,12 +1,12 @@
-import * as React           from 'react'
-import s                    from '../Product.module.scss'
-import { NavLink }          from 'react-router-dom'
-import { IProduct }         from '../../../store/ducks/product/contracts/state'
-import { Rating }           from '@material-ui/lab'
-import { Button }           from '@material-ui/core'
-import { useDispatch }      from 'react-redux'
-import cn                   from 'classnames'
-import { addProductToCart } from '../../../store/ducks/product/actionCreators'
+import * as React from 'react'
+import s from '../Product.module.scss'
+import { NavLink } from 'react-router-dom'
+import { IProduct } from '../../../store/ducks/product/contracts/state'
+import { Rating } from '@material-ui/lab'
+import { Button } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import cn from 'classnames'
+import { addProductToCart } from '../../../store/ducks/cart/actionCreators'
 
 type Props = {
 	item: IProduct
