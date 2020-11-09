@@ -18,7 +18,12 @@ $colorText: #151515;
     line-height: 31px;
     color: $colorText;
 }
-
+.h4 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: $colorText;
+}
 .text-center {
     text-align: center;
 }
@@ -34,4 +39,15 @@ $colorText: #151515;
 }
 .mb2 {
     margin-bottom: 32px;
+}
+
+
+.d-flex {
+    display: flex;
+}
+
+.header-with-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

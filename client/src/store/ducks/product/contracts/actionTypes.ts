@@ -1,5 +1,5 @@
-import { Action } from 'redux'
-import { IProduct, LoadingState, ProductsState } from './state'
+import { Action }                                            from 'redux'
+import { FilterData, IProduct, LoadingState, ProductsState } from './state'
 
 export enum ProductActionsType {
 	SET_PRODUCTS = 'product/SET_PRODUCTS',
@@ -7,6 +7,7 @@ export enum ProductActionsType {
 	FETCH_PRODUCTS = 'product/FETCH_PRODUCTS',
 	SET_LOADING_STATE = 'product/SET_LOADING_STATE',
 	GET_PRODUCT = 'product/GET_PRODUCT',
+	SET_FILTER_DATA = 'product/SET_FILTER_DATA',
 }
 
 export interface SetProductsActionInterface extends Action<ProductActionsType> {
@@ -27,4 +28,8 @@ export interface GetProductActionInterface extends Action<ProductActionsType> {
 export interface SetProductsLoadingStateActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.SET_LOADING_STATE
 	payload: LoadingState
+}
+export interface SetFilterDataActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.SET_FILTER_DATA
+	payload: FilterData | null
 }

@@ -97,7 +97,6 @@
         }
     }
 }
-
 .productDetail {
     display: flex;
     flex-direction: column;
@@ -150,5 +149,16 @@
                 background: #c9c9c9;
             }
         }
+    }
+}
+.filter {
+    width: 100%;
+    height: auto;
+    .filterCategory {
+        padding: 10px 0 0;
+    }
+    .filterCategory + .filterCategory{
+        border-top: 1px solid #ebebeb;
+        margin-top: 15px;
     }
 }

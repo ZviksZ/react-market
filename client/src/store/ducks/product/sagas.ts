@@ -1,13 +1,22 @@
-import { call, put, takeLatest, select } from 'redux-saga/effects'
-import { setProduct, setProducts, setProductsLoadingState } from './actionCreators'
+import { call, put, takeLatest } from 'redux-saga/effects'
+import { setFilterDate, setProduct, setProducts, setProductsLoadingState } from './actionCreators'
 import { GetProductActionInterface, ProductActionsType } from './contracts/actionTypes'
-import { LoadingState } from './contracts/state'
+import { IProduct, LoadingState } from './contracts/state'
 import { ProductsApi } from '../../../services/api/productsApi'
+import { getFilterData } from '../../../services/helpers/helpers'
 
 export function* fetchProductsRequest() {
 	try {
 		const items = yield call(ProductsApi.fetchProducts)
-		yield put(setProducts(items))
+
+		const sortedItems = items.sort((a: IProduct, b: IProduct) => b.rating - a.rating)
+
+		const itemsFilterData = getFilterData(sortedItems)
+
+		/*itemsFilterData*/
+
+		yield put(setProducts(sortedItems))
+		yield put(setFilterDate(itemsFilterData))
 	} catch (error) {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}

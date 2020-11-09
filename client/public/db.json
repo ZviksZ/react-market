@@ -7,7 +7,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal":15.5,
+      "diagonal":16.5,
       "color": "black",
       "rating": 5,
       "category": "laptop"
@@ -43,7 +43,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 15.5,
+      "diagonal": 14.5,
       "color": "black",
       "rating": 3,
       "category": "laptop"
@@ -56,14 +56,14 @@
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
       "diagonal": 15.5,
-      "color": "black",
+      "color": "red",
       "rating": 0,
       "category": "laptop"
     },
     {
       "_id": "5f625ff6bd97609c15525e2b8",
       "name": "Laptop 9005",
-      "price": 300,
+      "price": 20,
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
