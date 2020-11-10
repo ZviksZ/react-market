@@ -1,5 +1,4 @@
 import { FilterData, IProduct } from '../../store/ducks/product/contracts/state'
-import _ from 'lodash'
 
 export const getFilterData = (data: IProduct[]) => {
 	const filterData: FilterData = {

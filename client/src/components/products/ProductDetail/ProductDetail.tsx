@@ -62,6 +62,11 @@ export const ProductDetail: React.FC<Props> = ({ item }) => {
 							<Rating name="read-only" value={item.rating} readOnly />
 						</span>
 					</div>
+					<div className={s.item}>
+						<span className={s.name}>Category</span>
+						<div className={s.divider}></div>
+						<span className={s.info}>{item.category}</span>
+					</div>
 				</div>
 			</div>
 		</>

@@ -42,5 +42,5 @@ export interface GetFilterActionInterface extends Action<ProductActionsType> {
 }
 export interface SetFilterActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.SET_FILTER
-	payload: any
+	payload: FilterData | null
 }

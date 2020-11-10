@@ -29,10 +29,10 @@ export const Catalog: React.FC = () => {
 							filter
 						</Button>
 					</div>
-					<ProductList products={items} isHorizontal={true} />
+					<ProductList products={catalogFilterItems} isHorizontal={true} />
 				</div>
-				<ModalBlock visible={openFilter} onClose={() => setOpenFilter(false)} title="Filter products(in process)">
-					<ProductFilter />
+				<ModalBlock visible={openFilter} onClose={() => setOpenFilter(false)} title="Filter products">
+					<ProductFilter onClose={() => setOpenFilter(false)} />
 				</ModalBlock>
 			</section>
 		</>

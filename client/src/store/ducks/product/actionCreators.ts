@@ -39,7 +39,7 @@ export const getProductsFilter = (payload: any): GetFilterActionInterface => ({
 	type: ProductActionsType.GET_FILTER,
 	payload,
 })
-export const setProductsFilter = (payload: any): SetFilterActionInterface => ({
+export const setProductsFilter = (payload: FilterData | null): SetFilterActionInterface => ({
 	type: ProductActionsType.SET_FILTER,
 	payload,
 })

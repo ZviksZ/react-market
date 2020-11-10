@@ -5,13 +5,17 @@ import Checkbox from '@material-ui/core/Checkbox'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectProducts } from '../../../store/ducks/product/selectors'
 import Slider from '@material-ui/core/Slider'
-import { FilterData } from '../../../store/ducks/product/contracts/state'
 import Button from '@material-ui/core/Button'
 import { useForm } from 'react-hook-form'
 import { getProductsFilter } from '../../../store/ducks/product/actionCreators'
+import { useEffect } from 'react'
+
+type Props = {
+	onClose: () => void
+}
 
 // eslint-disable-next-line
-export const ProductFilter: React.FC = () => {
+export const ProductFilter: React.FC<Props> = ({onClose}) => {
 	const { filterData, filter } = useSelector(selectProducts)
 	const dispatch = useDispatch()
 
@@ -24,8 +28,6 @@ export const ProductFilter: React.FC = () => {
 
 	const [rating, setRating] = React.useState<number[]>([ratingMin, ratingMax])
 	const [price, setPrice] = React.useState<number[]>([priceMin, priceMax])
-
-	const [state, setState] = React.useState<any>({})
 
 	const handleRatingChange = (event: any, newValue: number | number[]) => {
 		setRating(newValue as number[])
@@ -49,12 +51,18 @@ export const ProductFilter: React.FC = () => {
 				},
 			}),
 		)
+		onClose()
+	}
+
+	const clearFilter = () => {
+		dispatch(getProductsFilter(null))
+		onClose()
 	}
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={s.filter}>
 			<div className={s.filterCategory}>
-				<h4 className="h4">Color</h4>
+				<h4 className="h4">Colors</h4>
 				{filterData?.color &&
 					filterData.color.map((item) => {
 						let checked = false
@@ -65,7 +73,7 @@ export const ProductFilter: React.FC = () => {
 					})}
 			</div>
 			<div className={s.filterCategory}>
-				<h4 className="h4">Diagonal</h4>
+				<h4 className="h4">Diagonals</h4>
 				{filterData?.diagonal &&
 					filterData.diagonal.map((item) => {
 						let checked = false
@@ -76,7 +84,7 @@ export const ProductFilter: React.FC = () => {
 					})}
 			</div>
 			<div className={s.filterCategory}>
-				<h4 className="h4">Category</h4>
+				<h4 className="h4">Categories</h4>
 				{filterData?.category &&
 					filterData.category.map((item) => {
 						let checked = false
@@ -110,9 +118,14 @@ export const ProductFilter: React.FC = () => {
 					aria-labelledby="range-slider"
 				/>
 			</div>
-			<Button type="submit" variant="contained" size="small" color="secondary">
-				Filter
-			</Button>
+			<div className={s.filterFooter}>
+				<Button type="submit" variant="contained" size="small" color="secondary">
+					Filter products
+				</Button>
+				<Button type="submit" variant="contained" size="small" onClick={clearFilter}>
+					Clear filter
+				</Button>
+			</div>
 		</form>
 	)
 }
