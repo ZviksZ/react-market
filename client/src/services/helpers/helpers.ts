@@ -45,3 +45,39 @@ export const getFilterData = (data: IProduct[]) => {
 
 	return filterData
 }
+
+export const getChoosenFilter = (payload: any) => {
+	const data: FilterData = {
+		diagonal: [],
+		category: [],
+		color: [],
+		rating: {
+			min: payload.rating.min,
+			max: payload.rating.max,
+		},
+		price: {
+			min: payload.price.min,
+			max: payload.price.max,
+		},
+	}
+
+	// eslint-disable-next-line
+	Object.keys(payload).forEach((item) => {
+		if (item !== 'rating' && item !== 'price') {
+			if (item.includes('color') && payload[item]) {
+				const itemValue = item.split('-')[1]
+				data.color.push(itemValue)
+			}
+			if (item.includes('diagonal') && payload[item]) {
+				const itemValue = +item.split('-')[1]
+				data.diagonal.push(itemValue)
+			}
+			if (item.includes('category') && payload[item]) {
+				const itemValue = item.split('-')[1]
+				data.category.push(itemValue)
+			}
+		}
+	})
+
+	return data
+}

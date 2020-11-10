@@ -7,7 +7,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal":16.5,
+      "diagonal":16,
       "color": "black",
       "rating": 5,
       "category": "laptop"
@@ -19,7 +19,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 15.5,
+      "diagonal": 15,
       "color": "black",
       "rating": 0,
       "category": "tablet"
@@ -31,7 +31,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 15.5,
+      "diagonal": 15,
       "color": "black",
       "rating": 0,
       "category": "tablet"
@@ -43,7 +43,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 14.5,
+      "diagonal": 14,
       "color": "black",
       "rating": 3,
       "category": "laptop"
@@ -55,7 +55,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 15.5,
+      "diagonal": 15,
       "color": "red",
       "rating": 0,
       "category": "laptop"
@@ -67,7 +67,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laborum laudantium quis temporibus!",
       "image": "https://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "purchase": 0,
-      "diagonal": 15.5,
+      "diagonal": 15,
       "color": "black",
       "rating": 0,
       "category": "laptop"

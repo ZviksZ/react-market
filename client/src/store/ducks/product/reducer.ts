@@ -7,7 +7,8 @@ const initialProductsState: ProductsState = {
 	items: [],
 	loadingState: LoadingState.NEVER,
 	singleProduct: null,
-	filterData: null
+	filterData: null,
+	filter: null,
 }
 export const productsReducer = produce((draft: Draft<ProductsState>, action: ProductsActions) => {
 	switch (action.type) {
@@ -36,6 +37,10 @@ export const productsReducer = produce((draft: Draft<ProductsState>, action: Pro
 
 		case ProductActionsType.SET_FILTER_DATA:
 			draft.filterData = action.payload
+			break
+
+		case ProductActionsType.SET_FILTER:
+			draft.filter = action.payload
 			break
 
 		default:

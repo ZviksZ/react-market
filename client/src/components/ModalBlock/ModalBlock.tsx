@@ -29,7 +29,7 @@ export const ModalBlock: React.FC<ModalBlockProps> = ({ title, onClose, fullWidt
 			<DialogTitle id="form-dialog-title">
 				<div className={s.dialogHeader}>
 					<span>{title}</span>
-					<IconButton onClick={onClose} color="secondary" aria-label="close">
+					<IconButton onClick={onClose} className={s.dialogHeaderCloseBtn} color="secondary" aria-label="close">
 						<CloseIcon style={{ fontSize: 26 }} color="primary" className={s.dialogHeaderClose}/>
 					</IconButton>
 				</div>

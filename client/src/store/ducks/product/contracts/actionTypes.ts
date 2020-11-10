@@ -8,6 +8,8 @@ export enum ProductActionsType {
 	SET_LOADING_STATE = 'product/SET_LOADING_STATE',
 	GET_PRODUCT = 'product/GET_PRODUCT',
 	SET_FILTER_DATA = 'product/SET_FILTER_DATA',
+	GET_FILTER = 'product/GET_FILTER',
+	SET_FILTER = 'product/SET_FILTER',
 }
 
 export interface SetProductsActionInterface extends Action<ProductActionsType> {
@@ -32,4 +34,13 @@ export interface SetProductsLoadingStateActionInterface extends Action<ProductAc
 export interface SetFilterDataActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.SET_FILTER_DATA
 	payload: FilterData | null
+}
+
+export interface GetFilterActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.GET_FILTER
+	payload: any
+}
+export interface SetFilterActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.SET_FILTER
+	payload: any
 }

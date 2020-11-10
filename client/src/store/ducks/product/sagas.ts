@@ -1,9 +1,9 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import { setFilterDate, setProduct, setProducts, setProductsLoadingState } from './actionCreators'
-import { GetProductActionInterface, ProductActionsType } from './contracts/actionTypes'
-import { IProduct, LoadingState } from './contracts/state'
-import { ProductsApi } from '../../../services/api/productsApi'
-import { getFilterData } from '../../../services/helpers/helpers'
+import { call, put, takeLatest }                                                              from 'redux-saga/effects'
+import { setFilterDate, setProduct, setProducts, setProductsFilter, setProductsLoadingState } from './actionCreators'
+import { GetProductActionInterface, ProductActionsType }                                      from './contracts/actionTypes'
+import { FilterData, IProduct, LoadingState }                                                 from './contracts/state'
+import { ProductsApi }                                                                        from '../../../services/api/productsApi'
+import { getChoosenFilter, getFilterData }                                                    from '../../../services/helpers/helpers'
 
 export function* fetchProductsRequest() {
 	try {
@@ -31,7 +31,14 @@ export function* getProductRequest({ id }: GetProductActionInterface) {
 	}
 }
 
+export function* getProductFilterRequest({ payload }: any) {
+	let data = getChoosenFilter(payload)
+
+	yield put(setProductsFilter(data))
+}
+
 export function* productsSaga() {
 	yield takeLatest(ProductActionsType.FETCH_PRODUCTS, fetchProductsRequest)
 	yield takeLatest(ProductActionsType.GET_PRODUCT, getProductRequest)
+	yield takeLatest(ProductActionsType.GET_FILTER, getProductFilterRequest)
 }

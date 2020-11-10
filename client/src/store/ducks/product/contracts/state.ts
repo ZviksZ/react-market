@@ -37,4 +37,5 @@ export interface ProductsState {
 	loadingState: LoadingState
 	singleProduct: IProduct | null
 	filterData: FilterData | null
+	filter: any
 }

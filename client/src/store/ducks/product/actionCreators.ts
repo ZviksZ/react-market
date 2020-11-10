@@ -1,7 +1,9 @@
 import {
 	FetchProductsActionInterface,
+	GetFilterActionInterface,
 	GetProductActionInterface,
 	ProductActionsType,
+	SetFilterActionInterface,
 	SetFilterDataActionInterface,
 	SetProductActionInterface,
 	SetProductsActionInterface,
@@ -33,7 +35,17 @@ export const setProductsLoadingState = (payload: LoadingState): SetProductsLoadi
 	payload,
 })
 
+export const getProductsFilter = (payload: any): GetFilterActionInterface => ({
+	type: ProductActionsType.GET_FILTER,
+	payload,
+})
+export const setProductsFilter = (payload: any): SetFilterActionInterface => ({
+	type: ProductActionsType.SET_FILTER,
+	payload,
+})
 export type ProductsActions =
+	| SetFilterActionInterface
+	| GetFilterActionInterface
 	| SetFilterDataActionInterface
 	| SetProductActionInterface
 	| GetProductActionInterface
