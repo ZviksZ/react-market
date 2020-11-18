@@ -71,7 +71,7 @@ class ProductController {
         return;
       }
 
-      const product = await ProductModel.findById(productId).exec();
+      const product = await ProductModel.findById(productId);
 
       if (!product) {
         res.status(404).send();

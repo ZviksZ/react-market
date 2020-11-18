@@ -25,7 +25,8 @@ export function* fetchProductsRequest() {
 export function* getProductRequest({ id }: GetProductActionInterface) {
 	try {
 		const product = yield call(ProductsApi.fetchProductData, id)
-		yield put(setProduct(product[0]))
+
+		yield put(setProduct(product))
 	} catch (error) {
 		yield put(setProductsLoadingState(LoadingState.ERROR))
 	}
