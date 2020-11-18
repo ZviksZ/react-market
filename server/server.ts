@@ -2,7 +2,10 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import "./core/db";
-import * as express from "express";
+
+import { ProductCtrl } from "./controllers/ProductController";
+
+const express = require("express");
 
 /*import { UserCtrl } from "./controllers/UserController";
 import { registerValidations } from "./validations/register";
@@ -22,6 +25,9 @@ app.use(express.json());
   - Сделать кастомный мидлваре, который будет проверять авторизацию, валидацию _id и инжектить его в req
 */
 
+app.get("/products", ProductCtrl.index);
+app.post("/products/create", ProductCtrl.create);
+app.get("/products/:id", ProductCtrl.show);
 /*
 app.get("/users", UserCtrl.index);
 app.get(
@@ -53,5 +59,5 @@ app.post("/auth/login", passport.authenticate("local"), UserCtrl.afterLogin);
 */
 
 app.listen(process.env.PORT, (): void => {
-  console.log("SERVER RUNNING!");
+  console.log(`Server is running on port ${process.env.PORT}`);
 });

@@ -18,6 +18,10 @@
             text-decoration: none;
         }
     }
+    nav {
+        display: flex;
+        align-items: center;
+    }
     .navbarLink {
         margin: 0 15px;
         color:  #000;
@@ -25,6 +29,27 @@
         font-size: 16px;
         text-decoration: none;
         font-weight: 700;
+        cursor: pointer;
+        @media screen and (min-width:1000px){
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+    .navabarLR {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:  #000;
+    }
+    .navbarSmallLink {
+        margin: 0 5px;
+        color:  #000;
+        text-transform: uppercase;
+        font-size: 13px;
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
         @media screen and (min-width:1000px){
             &:hover {
                 opacity: 0.7;

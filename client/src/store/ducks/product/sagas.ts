@@ -9,9 +9,9 @@ export function* fetchProductsRequest() {
 	try {
 		const items = yield call(ProductsApi.fetchProducts)
 
-		const sortedItems = items.sort((a: IProduct, b: IProduct) => b.rating - a.rating)
+		const sortedItems = yield items.sort((a: IProduct, b: IProduct) => b.rating - a.rating)
 
-		const itemsFilterData = getFilterData(sortedItems)
+		const itemsFilterData = yield getFilterData(sortedItems)
 
 		/*itemsFilterData*/
 
@@ -33,7 +33,7 @@ export function* getProductRequest({ id }: GetProductActionInterface) {
 
 export function* getProductFilterRequest({ payload }: any) {
 	if (payload) {
-		const data = getChoosenFilter(payload)
+		const data = yield getChoosenFilter(payload)
 
 		yield put(setProductsFilter(data))
 	} else {

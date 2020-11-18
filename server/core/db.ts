@@ -1,9 +1,9 @@
-import * as mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 mongoose.Promise = Promise;
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/twitter",
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/market",
   {
     useNewUrlParser: true,
     useCreateIndex: true,

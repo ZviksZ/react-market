@@ -8,12 +8,12 @@ interface Response<T> {
 
 export const ProductsApi = {
 	async fetchProducts(): Promise<IProduct[]> {
-		const { data } = await axios.get<IProduct[]>('/products')
-		return data
+		const { data } = await axios.get<Response<IProduct[]>>('/products')
+		return data.data
 	},
 	async fetchProductData(id: string): Promise<IProduct> {
-		const { data } = await axios.get<IProduct>('/products?_id=' + id)
-		return data
+		const { data } = await axios.get<Response<IProduct>>('/products?_id=' + id)
+		return data.data
 	},
 	/*async fetchProducts(): Promise<IProduct[]> {
 		const { data } = await axios.get<Response<IProduct[]>>('/products')

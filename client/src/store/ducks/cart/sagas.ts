@@ -55,8 +55,8 @@ export function* increaseCountRequest({ id }: IncreaseProductCountActionInterfac
 			}
 			return cartItem
 		})
-		const jsonResponse = JSON.stringify(cart)
-		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
+		const jsonResponse = yield JSON.stringify(cart)
+		yield Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
 
 		yield put(setProductToCart(cart))
 	} catch (error) {}
@@ -67,7 +67,7 @@ export function* decreaseCountRequest({ id }: DecreaseProductCountActionInterfac
 	try {
 		let cart = yield select((state: RootState) => state.cart.cart)
 
-		cart = cart
+		cart = yield cart
 			.map((cartItem: CartProduct) => {
 				if (cartItem._id === id) {
 					if (cartItem.count > 1) {
@@ -79,8 +79,8 @@ export function* decreaseCountRequest({ id }: DecreaseProductCountActionInterfac
 			})
 			.filter((cartItem: CartProduct) => cartItem !== undefined)
 
-		const jsonResponse = JSON.stringify(cart)
-		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
+		const jsonResponse = yield JSON.stringify(cart)
+		yield Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
 
 		yield put(setProductToCart(cart))
 	} catch (error) {}
@@ -88,8 +88,8 @@ export function* decreaseCountRequest({ id }: DecreaseProductCountActionInterfac
 
 export function* clearCartRequest() {
 	try {
-		const jsonResponse = JSON.stringify([])
-		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
+		const jsonResponse = yield JSON.stringify([])
+		yield Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
 
 		yield put(setProductToCart([]))
 	} catch (error) {}
@@ -98,10 +98,10 @@ export function* clearCartRequest() {
 export function* deleteCartProductRequest({ id }: DeleteProductActionInterface) {
 	try {
 		let cart = yield select((state: RootState) => state.cart.cart)
-		cart = cart.filter((cartItem: CartProduct) => cartItem._id !== id)
+		cart = yield cart.filter((cartItem: CartProduct) => cartItem._id !== id)
 
-		const jsonResponse = JSON.stringify(cart)
-		Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
+		const jsonResponse = yield JSON.stringify(cart)
+		yield Cookie.setCookie('productsCart', jsonResponse, { expires: 2147483647 })
 
 		yield put(setProductToCart(cart))
 	} catch (error) {}
