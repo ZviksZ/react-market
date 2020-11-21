@@ -33,12 +33,12 @@ export const LoginForm: React.FC = () => {
 						margin="normal"
 						required
 						fullWidth
-						id="login"
-						label="Login"
+						id="username"
+						label="Username"
 						error={!!errors.login}
 						helperText={errors.login ? errors.login.message : ''}
 						inputRef={register}
-						name="login"
+						name="username"
 						autoComplete="email"
 						autoFocus
 						className="form-input"

@@ -29,22 +29,22 @@ export const RegisterForm: React.FC = () => {
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<Grid container spacing={2}>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12}>
 					<TextField
 						autoComplete="fname"
-						name="name"
+						name="username"
 						variant="outlined"
 						required
 						fullWidth
 						error={!!errors.name}
 						helperText={errors.name ? errors.name.message : ''}
 						inputRef={register}
-						id="firstName"
-						label="Name"
+						id="username"
+						label="Username"
 						autoFocus
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
 						required
@@ -52,9 +52,9 @@ export const RegisterForm: React.FC = () => {
 						error={!!errors.surname}
 						helperText={errors.surname ? errors.surname.message : ''}
 						inputRef={register}
-						id="lastName"
-						label="Surname"
-						name="surname"
+						id="fullname"
+						label="Fullname"
+						name="fullname"
 						autoComplete="lname"
 					/>
 				</Grid>
@@ -84,6 +84,21 @@ export const RegisterForm: React.FC = () => {
 						label="Password"
 						type="password"
 						id="password"
+						autoComplete="current-password"
+					/>
+				</Grid>
+				<Grid item xs={12}>
+					<TextField
+						variant="outlined"
+						required
+						fullWidth
+						error={!!errors.password}
+						helperText={errors.password ? errors.password.message : ''}
+						inputRef={register}
+						name="password2"
+						label="Repeat password"
+						type="password"
+						id="password2"
 						autoComplete="current-password"
 					/>
 				</Grid>

@@ -25,7 +25,7 @@ class ProductController {
     }
   }
 
-  async create(req: any, res: express.Response): Promise<void> {
+  async create(req: express.Request, res: express.Response): Promise<void> {
     try {
       const product = new ProductModel(req.body);
 
@@ -43,7 +43,7 @@ class ProductController {
     }
   }
 
-  async show(req: any, res: express.Response): Promise<void> {
+  async show(req: express.Request, res: express.Response): Promise<void> {
     try {
       const productId = req.params.id;
 
@@ -98,22 +98,12 @@ class ProductController {
       const productId = req.params.id;
       const productUpdated = req.body;
 
-      console.log(productId);
-
       if (!isValidObjectId(productId)) {
         res.status(400).send();
         return;
       }
 
       await ProductModel.updateOne({ _id: productId }, { ...productUpdated });
-
-      /* product = { ...product, ...productUpdated };
-
-      console.log(product)
-
-      if (product) {
-        product.save();
-      }*/
 
       res.json({
         status: "success",

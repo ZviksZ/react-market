@@ -1,6 +1,6 @@
 import { body } from "express-validator";
 
-export const createTweetValidations = [
+export const createProductValidations = [
   body("text", "Введите текст твита")
     .isString()
     .isLength({
