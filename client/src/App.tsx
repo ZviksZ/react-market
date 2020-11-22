@@ -5,10 +5,10 @@ import { useRoutes } from './routes'
 import { useDispatch } from 'react-redux'
 import { fetchProducts } from './store/ducks/product/actionCreators'
 import { getCart } from './store/ducks/cart/actionCreators'
-import { ProductFilter } from './components/products/ProductFilter/ProductFilter'
 import { ModalBlock } from './components/ModalBlock/ModalBlock'
 import { LoginForm } from './components/forms/LoginForm/LoginForm'
 import { RegisterForm } from './components/forms/RegisterForm/RegisterForm'
+import { getMe } from './store/ducks/auth/actionCreators'
 
 export const App: React.FC = () => {
 	const dispatch = useDispatch()
@@ -17,6 +17,7 @@ export const App: React.FC = () => {
 	const [register, setRegister] = useState(false)
 
 	useEffect(() => {
+		dispatch(getMe())
 		dispatch(fetchProducts())
 		dispatch(getCart())
 	}, [dispatch])

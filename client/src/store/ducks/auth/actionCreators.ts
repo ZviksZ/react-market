@@ -27,4 +27,7 @@ export const setUser = (payload: User | null): SetUserActionInterface => ({
 export const logout = (): LogoutActionInterface => ({
 	type: AuthActionsType.LOGOUT,
 })
+export const getMe = (): GetAuthMeActionInterface => ({
+	type: AuthActionsType.GET_ME,
+})
 export type AuthActions = LogoutActionInterface | GetAuthMeActionInterface | LoginActionInterface | RegisterActionInterface | SetUserActionInterface

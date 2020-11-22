@@ -11,10 +11,6 @@ export const authReducer = produce((draft: Draft<AuthState>, action: AuthActions
 		case AuthActionsType.SET_USER:
 			draft.user = action.payload
 			break
-		case AuthActionsType.LOGOUT:
-			draft.user = null
-			break
-
 		default:
 			break
 	}

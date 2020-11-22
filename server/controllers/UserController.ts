@@ -100,6 +100,7 @@ class UserController {
       const user = req.user
         ? (req.user as UserModelDocumentInterface).toJSON()
         : undefined;
+
       res.json({
         status: "success",
         data: {
