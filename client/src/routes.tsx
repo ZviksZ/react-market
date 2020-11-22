@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { Home } from './pages/Home/Home'
 import { Catalog } from './pages/Catalog/Catalog'
 import { CatalogDetail } from './pages/CatalogDetail/CatalogDetail'
-import { LoginForm } from './components/forms/LoginForm/LoginForm'
+import { Admin } from './pages/Admin/Admin'
 
 export const useRoutes = (isAuth: boolean) => {
 	return (
@@ -17,6 +17,9 @@ export const useRoutes = (isAuth: boolean) => {
 				</Route>
 				<Route path="/catalog/:id" exact>
 					<CatalogDetail />
+				</Route>
+				<Route path="/admin" exact>
+					<Admin />
 				</Route>
 				<Route path="/" render={() => <Redirect from="/" to="/" />} />
 			</Switch>

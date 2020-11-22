@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button'
 import { useState } from 'react'
 
 export const Catalog: React.FC = () => {
-	const { loadingState, items } = useSelector(selectProducts)
+	const { loadingState } = useSelector(selectProducts)
 	const catalogFilterItems = useSelector(selectProductsFilterItems)
 
 	const [openFilter, setOpenFilter] = useState<boolean>(false)

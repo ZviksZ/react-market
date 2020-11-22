@@ -42,6 +42,11 @@ export const Navbar: React.FC<Props> = ({ setLogin, setRegister }) => {
 						<NavLink className={s.navbarLink} to={'/catalog'}>
 							Catalog
 						</NavLink>
+						{user && user.category === 'admin' && (
+							<NavLink className={s.navbarLink} to={'/admin'}>
+								Admin
+							</NavLink>
+						)}
 					</nav>
 					<Button onClick={() => setBasketOpen((prev) => !prev)} data-testid="open-basket" variant="contained" color="primary" className={s.navbarBasketBtn}>
 						<Badge badgeContent={cartCount} color="secondary">

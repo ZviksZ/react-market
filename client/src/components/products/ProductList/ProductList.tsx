@@ -10,6 +10,9 @@ type Props = {
 }
 
 export const ProductList: React.FC<Props> = ({ maxCount, products, isHorizontal = false }) => {
+	if (!products.length) {
+		return <p className="text-center mt2 mb2">Unfortunately, no products here.</p>
+	}
 	return (
 		<>
 			<div className={s.productList}>

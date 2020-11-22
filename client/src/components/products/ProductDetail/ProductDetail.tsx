@@ -30,7 +30,9 @@ export const ProductDetail: React.FC<Props> = ({ item }) => {
 		<>
 			<div className={s.productDetail}>
 				<div className={s.productHeader}>
-					<h1 className="h1">{item.name}</h1>
+					<h1 className="h1">
+						{item.name} - {item.price}$
+					</h1>
 					<Button variant="contained" size="small" color="primary" onClick={addToCart}>
 						to cart
 					</Button>
@@ -38,8 +40,6 @@ export const ProductDetail: React.FC<Props> = ({ item }) => {
 				<div className={s.productImage} style={{ backgroundImage: 'url(' + item.image + ')' }}></div>
 				<h3 className="h3 mt mb">Description</h3>
 				<p className={s.productDesc}>{item.text}</p>
-				<h3 className="h3 mt mb">Price</h3>
-				<p className={s.productDesc}>{item.price}$</p>
 				<h3 className="h3 mt mb">Characteristics</h3>
 				<div className={s.propsList}>
 					<div className={s.item}>
