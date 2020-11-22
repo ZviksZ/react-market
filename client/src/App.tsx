@@ -25,10 +25,10 @@ export const App: React.FC = () => {
 		<div className="body">
 			<Navbar setLogin={setLogin} setRegister={setRegister} />
 			<ModalBlock visible={login} onClose={() => setLogin(false)} title="Login">
-				<LoginForm />
+				<LoginForm closeModal={setLogin} />
 			</ModalBlock>
 			<ModalBlock visible={register} onClose={() => setRegister(false)} title="Register">
-				<RegisterForm />
+				<RegisterForm closeModal={setRegister} />
 			</ModalBlock>
 			{routes}
 			<Footer />

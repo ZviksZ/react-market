@@ -1,30 +1,30 @@
+import {
+	AuthActionsType,
+	GetAuthMeActionInterface,
+	LoginActionInterface,
+	LoginData,
+	LogoutActionInterface,
+	RegisterActionInterface,
+	RegisterData,
+	SetUserActionInterface,
+} from './contracts/actionTypes'
+import { ProductsState }                                                                                                                                      from '../product/contracts/state'
+import { ProductActionsType, SetProductsActionInterface }                                                                                                     from '../product/contracts/actionTypes'
+import { User }                                                                                                                                               from './contracts/state'
 
-/*export const getCart = (): GetCartActionInterface => ({
-	type: CartActionsType.GET_CART,
-})
-export const addProductToCart = (item: IProduct): AddToCartActionInterface => ({
-	type: CartActionsType.ADD_TO_CART,
-	item,
-})
-export const setProductToCart = (payload: CartProduct[]): SetToCartActionInterface => ({
-	type: CartActionsType.SET_TO_CART,
+export const login = (payload: LoginData): LoginActionInterface => ({
+	type: AuthActionsType.LOGIN,
 	payload,
 })
-export const decreaseProductCount = (id: string): DecreaseProductCountActionInterface => ({
-	type: CartActionsType.DECREASE_COUNT,
-	id,
+export const registerUser = (payload: RegisterData): RegisterActionInterface => ({
+	type: AuthActionsType.REGISTER,
+	payload,
 })
-export const increaseProductCount = (id: string): IncreaseProductCountActionInterface => ({
-	type: CartActionsType.INCREASE_COUNT,
-	id,
+export const setUser = (payload: User | null): SetUserActionInterface => ({
+	type: AuthActionsType.SET_USER,
+	payload,
 })
-export const clearCart = (): ClearCartActionInterface => ({
-	type: CartActionsType.CLEAR_CART,
+export const logout = (): LogoutActionInterface => ({
+	type: AuthActionsType.LOGOUT,
 })
-export const deleteCartProduct = (id: string): DeleteProductActionInterface => ({
-	type: CartActionsType.DELETE_CART_PRODUCT,
-	id,
-})
-
-*/
-export type AuthActions = null
+export type AuthActions = LogoutActionInterface | GetAuthMeActionInterface | LoginActionInterface | RegisterActionInterface | SetUserActionInterface

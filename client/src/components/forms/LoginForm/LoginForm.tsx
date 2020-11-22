@@ -1,31 +1,38 @@
-import * as React      from 'react'
-import { useForm }     from 'react-hook-form'
+import * as React from 'react'
+import { useForm } from 'react-hook-form'
 import { loginSchema } from '../../../services/helpers/validation'
-import { useDispatch } from 'react-redux'
-import { TextField }   from '@material-ui/core'
-import Button          from '@material-ui/core/Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { TextField } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Grid            from '@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid'
+import { login } from '../../../store/ducks/auth/actionCreators'
+import { selectAuth } from '../../../store/ducks/auth/selectors'
 
 interface IFormInputs {
-	login: string
+	username: string
 	password: string
 }
 
-export const LoginForm: React.FC = () => {
+type Props = {
+	closeModal: (param: boolean) => void
+}
+
+export const LoginForm: React.FC<Props> = ({ closeModal }: Props) => {
 	const dispatch = useDispatch()
 
 	const { register, handleSubmit, errors } = useForm<IFormInputs>({
 		resolver: yupResolver(loginSchema),
 	})
 
-	const onSubmit = (data: any) => {
-		console.log(data)
-		//dispatch(login(data.login, data.password))
+	const onSubmit = (data: IFormInputs) => {
+		dispatch(login(data))
+
+		closeModal(false)
 	}
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form onSubmit={handleSubmit(onSubmit)} className="form">
 			<Grid container spacing={2}>
 				<Grid item xs={12}>
 					<TextField
@@ -35,8 +42,8 @@ export const LoginForm: React.FC = () => {
 						fullWidth
 						id="username"
 						label="Username"
-						error={!!errors.login}
-						helperText={errors.login ? errors.login.message : ''}
+						error={!!errors.username}
+						helperText={errors.username ? errors.username.message : ''}
 						inputRef={register}
 						name="username"
 						autoComplete="email"

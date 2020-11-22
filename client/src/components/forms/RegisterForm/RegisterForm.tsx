@@ -1,29 +1,36 @@
-import * as React                      from 'react'
-import { useForm }                     from 'react-hook-form'
+import * as React from 'react'
+import { useForm } from 'react-hook-form'
 import { registerSchema } from '../../../services/helpers/validation'
-import { useDispatch }                 from 'react-redux'
-import { TextField }                   from '@material-ui/core'
-import Button                          from '@material-ui/core/Button'
-import { yupResolver }                 from '@hookform/resolvers/yup'
-import Grid                            from '@material-ui/core/Grid'
+import { useDispatch } from 'react-redux'
+import { TextField } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import { yupResolver } from '@hookform/resolvers/yup'
+import Grid from '@material-ui/core/Grid'
+import { registerUser } from '../../../store/ducks/auth/actionCreators'
 
 interface IFormInputs {
-	name: string
-	surname: string
+	username: string
+	fullname: string
 	email: string
 	password: string
+	password2: string
 }
 
-export const RegisterForm: React.FC = () => {
+type Props = {
+	closeModal: (param: boolean) => void
+}
+
+export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 	const dispatch = useDispatch()
 
 	const { register, handleSubmit, errors } = useForm<IFormInputs>({
 		resolver: yupResolver(registerSchema),
 	})
 
-	const onSubmit = (data: any) => {
-		console.log(data)
-		//dispatch(register(data))
+	const onSubmit = (data: IFormInputs) => {
+		dispatch(registerUser(data))
+
+		closeModal(false)
 	}
 
 	return (
@@ -36,8 +43,8 @@ export const RegisterForm: React.FC = () => {
 						variant="outlined"
 						required
 						fullWidth
-						error={!!errors.name}
-						helperText={errors.name ? errors.name.message : ''}
+						error={!!errors.username}
+						helperText={errors.username ? errors.username.message : ''}
 						inputRef={register}
 						id="username"
 						label="Username"
@@ -49,8 +56,8 @@ export const RegisterForm: React.FC = () => {
 						variant="outlined"
 						required
 						fullWidth
-						error={!!errors.surname}
-						helperText={errors.surname ? errors.surname.message : ''}
+						error={!!errors.fullname}
+						helperText={errors.fullname ? errors.fullname.message : ''}
 						inputRef={register}
 						id="fullname"
 						label="Fullname"
@@ -84,7 +91,6 @@ export const RegisterForm: React.FC = () => {
 						label="Password"
 						type="password"
 						id="password"
-						autoComplete="current-password"
 					/>
 				</Grid>
 				<Grid item xs={12}>
@@ -92,14 +98,13 @@ export const RegisterForm: React.FC = () => {
 						variant="outlined"
 						required
 						fullWidth
-						error={!!errors.password}
-						helperText={errors.password ? errors.password.message : ''}
+						error={!!errors.password2}
+						helperText={errors.password2 ? errors.password2.message : ''}
 						inputRef={register}
 						name="password2"
 						label="Repeat password"
 						type="password"
 						id="password2"
-						autoComplete="current-password"
 					/>
 				</Grid>
 				<Grid item xs={12}>
@@ -108,7 +113,6 @@ export const RegisterForm: React.FC = () => {
 					</Button>
 				</Grid>
 			</Grid>
-
 		</form>
 	)
 }

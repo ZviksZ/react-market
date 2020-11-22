@@ -11,6 +11,7 @@ import { generateMD5 } from "../utils/generateHash";
 import { sendEmail } from "../utils/sendEmail";
 
 class UserController {
+  // eslint-disable-next-line
   async create(req: express.Request, res: express.Response): Promise<void> {
     try {
       const errors = validationResult(req);
@@ -75,10 +76,11 @@ class UserController {
 
       if (user) {
         user.confirmed = true;
-        user.save();
+        await user.save();
 
         res.json({
           status: "success",
+          data: user.toJSON(),
         });
       } else {
         res
