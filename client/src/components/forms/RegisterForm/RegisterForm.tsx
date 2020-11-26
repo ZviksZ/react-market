@@ -41,7 +41,6 @@ export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 						autoComplete="fname"
 						name="username"
 						variant="outlined"
-						required
 						fullWidth
 						error={!!errors.username}
 						helperText={errors.username ? errors.username.message : ''}
@@ -54,7 +53,6 @@ export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
-						required
 						fullWidth
 						error={!!errors.fullname}
 						helperText={errors.fullname ? errors.fullname.message : ''}
@@ -68,7 +66,6 @@ export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
-						required
 						fullWidth
 						id="email"
 						error={!!errors.email}
@@ -82,7 +79,6 @@ export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
-						required
 						fullWidth
 						error={!!errors.password}
 						helperText={errors.password ? errors.password.message : ''}
@@ -96,7 +92,6 @@ export const RegisterForm: React.FC<Props> = ({ closeModal }: Props) => {
 				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
-						required
 						fullWidth
 						error={!!errors.password2}
 						helperText={errors.password2 ? errors.password2.message : ''}

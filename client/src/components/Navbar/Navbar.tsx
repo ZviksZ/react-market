@@ -44,7 +44,7 @@ export const Navbar: React.FC<Props> = ({ setLogin, setRegister }) => {
 						</NavLink>
 						{user && user.category === 'admin' && (
 							<NavLink className={s.navbarLink} to={'/admin'}>
-								Admin
+								Admin panel
 							</NavLink>
 						)}
 					</nav>

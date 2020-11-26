@@ -72,21 +72,11 @@ class UserController {
         return;
       }
 
-      const user = await UserModel.findOne({ confirmHash: hash }).exec();
+      await UserModel.updateOne({ confirmHash: hash }, { confirmed: true });
 
-      if (user) {
-        user.confirmed = true;
-        await user.save();
-
-        res.json({
-          status: "success",
-          data: user.toJSON(),
-        });
-      } else {
-        res
-          .status(404)
-          .json({ status: "error", message: "Пользователь не найден" });
-      }
+      res.json({
+        status: "success",
+      });
     } catch (error) {
       res.status(500).json({
         status: "error",

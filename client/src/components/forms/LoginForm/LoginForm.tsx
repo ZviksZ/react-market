@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Grid from '@material-ui/core/Grid'
 import { login } from '../../../store/ducks/auth/actionCreators'
-import { selectAuth } from '../../../store/ducks/auth/selectors'
 
 interface IFormInputs {
 	username: string
@@ -23,6 +22,7 @@ export const LoginForm: React.FC<Props> = ({ closeModal }: Props) => {
 
 	const { register, handleSubmit, errors } = useForm<IFormInputs>({
 		resolver: yupResolver(loginSchema),
+		/*validationSchema: loginSchema,*/
 	})
 
 	const onSubmit = (data: IFormInputs) => {
@@ -38,7 +38,6 @@ export const LoginForm: React.FC<Props> = ({ closeModal }: Props) => {
 					<TextField
 						variant="outlined"
 						margin="normal"
-						required
 						fullWidth
 						id="username"
 						label="Username"
@@ -55,7 +54,6 @@ export const LoginForm: React.FC<Props> = ({ closeModal }: Props) => {
 					<TextField
 						variant="outlined"
 						margin="normal"
-						required
 						fullWidth
 						name="password"
 						error={!!errors.password}
