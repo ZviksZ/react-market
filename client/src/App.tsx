@@ -9,6 +9,7 @@ import { ModalBlock } from './components/ModalBlock/ModalBlock'
 import { LoginForm } from './components/forms/LoginForm/LoginForm'
 import { RegisterForm } from './components/forms/RegisterForm/RegisterForm'
 import { getMe } from './store/ducks/auth/actionCreators'
+import { GlobalMessage } from './components/GlobalMessage/GlobalMessage'
 
 export const App: React.FC = () => {
 	const dispatch = useDispatch()
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
 
 	return (
 		<div className="body">
+			<GlobalMessage />
 			<Navbar setLogin={setLogin} setRegister={setRegister} />
 			<ModalBlock visible={login} onClose={() => setLogin(false)} title="Login">
 				<LoginForm closeModal={setLogin} />

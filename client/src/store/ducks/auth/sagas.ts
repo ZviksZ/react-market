@@ -1,7 +1,7 @@
 import { put, takeLatest, select, call } from 'redux-saga/effects'
 import { AuthActionsType, LoginActionInterface, RegisterActionInterface } from './contracts/actionTypes'
 import { AuthApi } from '../../../services/api/authApi'
-import { setUser } from './actionCreators'
+import { setGlobalMessage, setUser } from './actionCreators'
 import { Cookie } from '../../../services/helpers/cookie'
 
 export function* loginRequest({ payload }: LoginActionInterface) {
@@ -12,17 +12,20 @@ export function* loginRequest({ payload }: LoginActionInterface) {
 		Cookie.setCookie('token', jsonResponse, { expires: 2147483647 })
 
 		yield put(setUser(user))
-	} catch (error) {}
+		yield put(setGlobalMessage({ text: 'Login is successful', type: 'success' }))
+	} catch (error) {
+		yield put(setGlobalMessage({ text: 'Login error. Try again', type: 'error' }))
+	}
 }
-
 export function* registerRequest({ payload }: RegisterActionInterface) {
 	try {
 		const user = yield call(AuthApi.register, payload)
 
-		//TODO - добавить глобальное сообщение о регистрации
-	} catch (error) {}
+		yield put(setGlobalMessage({ text: 'Register is successful. Login now.', type: 'success' }))
+	} catch (error) {
+		yield put(setGlobalMessage({ text: 'Register error. Try again', type: 'error' }))
+	}
 }
-
 export function* getMeRequest() {
 	try {
 		const cookies = Cookie.getCookie('token')
@@ -42,6 +45,7 @@ export function* logoutRequest() {
 		yield put(setUser(null))
 	} catch (error) {}
 }
+
 export function* authSaga() {
 	yield takeLatest(AuthActionsType.LOGIN, loginRequest)
 	yield takeLatest(AuthActionsType.REGISTER, registerRequest)

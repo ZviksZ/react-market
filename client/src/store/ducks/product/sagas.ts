@@ -13,8 +13,6 @@ export function* fetchProductsRequest() {
 
 		const itemsFilterData = yield getFilterData(sortedItems)
 
-		/*itemsFilterData*/
-
 		yield put(setProducts(sortedItems))
 		yield put(setFilterDate(itemsFilterData))
 	} catch (error) {

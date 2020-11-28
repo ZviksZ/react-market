@@ -6,11 +6,12 @@ import {
 	LogoutActionInterface,
 	RegisterActionInterface,
 	RegisterData,
+	SetGlobalMessageActionInterface,
 	SetUserActionInterface,
 } from './contracts/actionTypes'
-import { ProductsState }                                                                                                                                      from '../product/contracts/state'
-import { ProductActionsType, SetProductsActionInterface }                                                                                                     from '../product/contracts/actionTypes'
-import { User }                                                                                                                                               from './contracts/state'
+import { ProductsState } from '../product/contracts/state'
+import { ProductActionsType, SetProductsActionInterface } from '../product/contracts/actionTypes'
+import { GlobalMessage, User } from './contracts/state'
 
 export const login = (payload: LoginData): LoginActionInterface => ({
 	type: AuthActionsType.LOGIN,
@@ -30,4 +31,9 @@ export const logout = (): LogoutActionInterface => ({
 export const getMe = (): GetAuthMeActionInterface => ({
 	type: AuthActionsType.GET_ME,
 })
-export type AuthActions = LogoutActionInterface | GetAuthMeActionInterface | LoginActionInterface | RegisterActionInterface | SetUserActionInterface
+export const setGlobalMessage = (payload: GlobalMessage | null): SetGlobalMessageActionInterface => ({
+	type: AuthActionsType.SET_GLOBAL_MESSAGE,
+	payload,
+})
+
+export type AuthActions = SetGlobalMessageActionInterface | LogoutActionInterface | GetAuthMeActionInterface | LoginActionInterface | RegisterActionInterface | SetUserActionInterface

@@ -12,6 +12,12 @@ export interface User {
 	updatedAt?: string
 }
 
+export interface GlobalMessage {
+	text: string
+	type: 'success' | 'info' | 'warning' | 'error' | undefined
+}
+
 export interface AuthState {
 	user: User | null
+	globalMessage: GlobalMessage | null
 }

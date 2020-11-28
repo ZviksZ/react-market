@@ -1,5 +1,5 @@
-import { Action } from 'redux'
-import { User } from './state'
+import { Action }              from 'redux'
+import { GlobalMessage, User } from './state'
 
 export enum AuthActionsType {
 	REGISTER = 'auth/REGISTER',
@@ -7,6 +7,7 @@ export enum AuthActionsType {
 	SET_USER = 'auth/SET_USER',
 	GET_ME = 'auth/GET_ME',
 	LOGOUT = 'auth/LOGOUT',
+	SET_GLOBAL_MESSAGE = 'auth/SET_GLOBAL_MESSAGE',
 }
 
 export interface LoginData {
@@ -38,4 +39,8 @@ export interface RegisterActionInterface extends Action<AuthActionsType> {
 export interface SetUserActionInterface extends Action<AuthActionsType> {
 	type: AuthActionsType.SET_USER
 	payload: User | null
+}
+export interface SetGlobalMessageActionInterface extends Action<AuthActionsType> {
+	type: AuthActionsType.SET_GLOBAL_MESSAGE
+	payload: GlobalMessage | null
 }
