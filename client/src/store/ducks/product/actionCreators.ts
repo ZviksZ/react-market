@@ -6,6 +6,7 @@ import {
 	SetFilterActionInterface,
 	SetFilterDataActionInterface,
 	SetProductActionInterface,
+	SetProductFormDataActionInterface,
 	SetProductsActionInterface,
 	SetProductsLoadingStateActionInterface,
 } from './contracts/actionTypes'
@@ -35,7 +36,7 @@ export const setProductsLoadingState = (payload: LoadingState): SetProductsLoadi
 	payload,
 })
 
-export const getProductsFilter = (payload: any): GetFilterActionInterface => ({
+export const getProductsFilter = (payload: FilterData | null): GetFilterActionInterface => ({
 	type: ProductActionsType.GET_FILTER,
 	payload,
 })
@@ -43,7 +44,13 @@ export const setProductsFilter = (payload: FilterData | null): SetFilterActionIn
 	type: ProductActionsType.SET_FILTER,
 	payload,
 })
+export const SetProductFormData = (payload: IProduct | null): SetProductFormDataActionInterface => ({
+	type: ProductActionsType.SET_PRODUCT_FORM_DATA,
+	payload,
+})
+
 export type ProductsActions =
+	| SetProductFormDataActionInterface
 	| SetFilterActionInterface
 	| GetFilterActionInterface
 	| SetFilterDataActionInterface

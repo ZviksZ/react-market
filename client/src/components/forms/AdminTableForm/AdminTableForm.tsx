@@ -1,7 +1,8 @@
-import * as React from 'react'
+import * as React      from 'react'
 import { useDispatch } from 'react-redux'
-import { useForm } from 'react-hook-form'
-import { TextField } from '@material-ui/core'
+import { useForm }     from 'react-hook-form'
+import { Button, TextField }   from '@material-ui/core'
+import Grid            from '@material-ui/core/Grid'
 
 interface IFormInputs {
 	username: string

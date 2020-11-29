@@ -20,7 +20,7 @@ export interface FilterData {
 }
 
 export interface IProduct {
-	_id: string
+	_id?: string
 	name: string
 	price: number
 	text: string
@@ -38,4 +38,5 @@ export interface ProductsState {
 	singleProduct: IProduct | null
 	filterData: FilterData | null
 	filter: FilterData | null
+	productFormData: IProduct | null
 }
