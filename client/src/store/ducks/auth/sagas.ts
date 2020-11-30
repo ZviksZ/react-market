@@ -1,4 +1,4 @@
-import { put, takeLatest, select, call } from 'redux-saga/effects'
+import { put, takeLatest, call } from 'redux-saga/effects'
 import { AuthActionsType, LoginActionInterface, RegisterActionInterface } from './contracts/actionTypes'
 import { AuthApi } from '../../../services/api/authApi'
 import { setGlobalMessage, setUser } from './actionCreators'
@@ -19,7 +19,7 @@ export function* loginRequest({ payload }: LoginActionInterface) {
 }
 export function* registerRequest({ payload }: RegisterActionInterface) {
 	try {
-		const user = yield call(AuthApi.register, payload)
+		yield call(AuthApi.register, payload)
 
 		yield put(setGlobalMessage({ text: 'Register is successful. Login now.', type: 'success' }))
 	} catch (error) {

@@ -9,6 +9,7 @@ export const AdminTableHead: React.FC = () => {
 		<TableHead>
 			<TableRow>
 				<TableCell className={s.tableTh}>Id</TableCell>
+				<TableCell className={s.tableTh}>Name</TableCell>
 				<TableCell className={s.tableTh}>image</TableCell>
 				<TableCell className={s.tableTh}>price</TableCell>
 				<TableCell className={s.tableTh}>purchase</TableCell>
@@ -16,7 +17,6 @@ export const AdminTableHead: React.FC = () => {
 				<TableCell className={s.tableTh}>category</TableCell>
 				<TableCell className={s.tableTh}>color</TableCell>
 				<TableCell className={s.tableTh}>diagonal</TableCell>
-				<TableCell className={s.tableTh}>text</TableCell>
 				<TableCell className={s.tableTh}></TableCell>
 				<TableCell className={s.tableTh}></TableCell>
 			</TableRow>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { loginSchema } from '../../../services/helpers/validation'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { TextField } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import { yupResolver } from '@hookform/resolvers/yup'

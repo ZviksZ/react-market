@@ -1,7 +1,6 @@
 import * as React         from 'react'
 import { useSelector }    from 'react-redux'
 import { ProductList }    from '../../components/products/ProductList/ProductList'
-import { RootState }      from '../../store/store'
 import { NavLink }        from 'react-router-dom'
 import { Button }         from '@material-ui/core'
 import { Loader }         from '../../components/Loader/Loader'

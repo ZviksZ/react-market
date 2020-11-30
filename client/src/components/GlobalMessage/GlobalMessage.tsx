@@ -4,7 +4,7 @@ import MuiAlert, { AlertProps }     from '@material-ui/lab/Alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAuth }               from '../../store/ducks/auth/selectors'
 import { useEffect }                from 'react'
-import { logout, setGlobalMessage } from '../../store/ducks/auth/actionCreators'
+import { setGlobalMessage } from '../../store/ducks/auth/actionCreators'
 
 function Alert(props: AlertProps) {
 	return <MuiAlert elevation={6} variant="filled" {...props} />

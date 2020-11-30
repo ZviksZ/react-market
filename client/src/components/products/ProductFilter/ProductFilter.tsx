@@ -8,7 +8,6 @@ import Slider from '@material-ui/core/Slider'
 import Button from '@material-ui/core/Button'
 import { useForm } from 'react-hook-form'
 import { getProductsFilter } from '../../../store/ducks/product/actionCreators'
-import { useEffect } from 'react'
 
 type Props = {
 	onClose: () => void

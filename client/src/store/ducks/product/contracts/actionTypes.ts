@@ -51,3 +51,11 @@ export interface SetProductFormDataActionInterface extends Action<ProductActions
 	type: ProductActionsType.SET_PRODUCT_FORM_DATA
 	payload: IProduct | null
 }
+export interface UpdateProductActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.UPDATE_PRODUCT
+	payload: IProduct
+}
+export interface DeleteProductItemActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.DELETE_PRODUCT
+	id: string
+}

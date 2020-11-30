@@ -1,4 +1,5 @@
 import {
+	DeleteProductItemActionInterface,
 	FetchProductsActionInterface,
 	GetFilterActionInterface,
 	GetProductActionInterface,
@@ -35,7 +36,6 @@ export const setProductsLoadingState = (payload: LoadingState): SetProductsLoadi
 	type: ProductActionsType.SET_LOADING_STATE,
 	payload,
 })
-
 export const getProductsFilter = (payload: FilterData | null): GetFilterActionInterface => ({
 	type: ProductActionsType.GET_FILTER,
 	payload,
@@ -44,12 +44,17 @@ export const setProductsFilter = (payload: FilterData | null): SetFilterActionIn
 	type: ProductActionsType.SET_FILTER,
 	payload,
 })
-export const SetProductFormData = (payload: IProduct | null): SetProductFormDataActionInterface => ({
+export const setProductFormData = (payload: IProduct | null): SetProductFormDataActionInterface => ({
 	type: ProductActionsType.SET_PRODUCT_FORM_DATA,
 	payload,
 })
+export const deleteProduct = (id: string): DeleteProductItemActionInterface => ({
+	type: ProductActionsType.DELETE_PRODUCT,
+	id,
+})
 
 export type ProductsActions =
+	| DeleteProductItemActionInterface
 	| SetProductFormDataActionInterface
 	| SetFilterActionInterface
 	| GetFilterActionInterface

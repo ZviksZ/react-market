@@ -1,9 +1,10 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { setFilterDate, setProduct, setProducts, setProductsFilter, setProductsLoadingState } from './actionCreators'
-import { GetProductActionInterface, ProductActionsType } from './contracts/actionTypes'
-import { FilterData, IProduct, LoadingState } from './contracts/state'
+import { DeleteProductItemActionInterface, GetProductActionInterface, ProductActionsType } from './contracts/actionTypes'
+import { IProduct, LoadingState } from './contracts/state'
 import { ProductsApi } from '../../../services/api/productsApi'
 import { getChoosenFilter, getFilterData } from '../../../services/helpers/helpers'
+import { setGlobalMessage } from '../auth/actionCreators'
 
 export function* fetchProductsRequest() {
 	try {
@@ -40,8 +41,20 @@ export function* getProductFilterRequest({ payload }: any) {
 	}
 }
 
+export function* deleteProductRequest({ id }: DeleteProductItemActionInterface) {
+	try {
+		yield call(ProductsApi.deleteProduct, id)
+		yield call(fetchProductsRequest)
+
+		yield put(setGlobalMessage({ text: `Product ${id} has been removed`, type: 'success' }))
+	} catch (error) {
+		yield put(setGlobalMessage({ text: 'Deleting error. Try again', type: 'error' }))
+	}
+}
+
 export function* productsSaga() {
 	yield takeLatest(ProductActionsType.FETCH_PRODUCTS, fetchProductsRequest)
 	yield takeLatest(ProductActionsType.GET_PRODUCT, getProductRequest)
 	yield takeLatest(ProductActionsType.GET_FILTER, getProductFilterRequest)
+	yield takeLatest(ProductActionsType.DELETE_PRODUCT, deleteProductRequest)
 }

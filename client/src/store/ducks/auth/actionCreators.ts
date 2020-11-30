@@ -9,8 +9,6 @@ import {
 	SetGlobalMessageActionInterface,
 	SetUserActionInterface,
 } from './contracts/actionTypes'
-import { ProductsState } from '../product/contracts/state'
-import { ProductActionsType, SetProductsActionInterface } from '../product/contracts/actionTypes'
 import { GlobalMessage, User } from './contracts/state'
 
 export const login = (payload: LoginData): LoginActionInterface => ({
