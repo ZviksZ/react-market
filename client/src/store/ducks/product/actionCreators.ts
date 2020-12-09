@@ -1,4 +1,5 @@
 import {
+	CreateProductActionInterface,
 	DeleteProductItemActionInterface,
 	FetchProductsActionInterface,
 	GetFilterActionInterface,
@@ -10,6 +11,7 @@ import {
 	SetProductFormDataActionInterface,
 	SetProductsActionInterface,
 	SetProductsLoadingStateActionInterface,
+	UpdateProductActionInterface,
 } from './contracts/actionTypes'
 import { FilterData, IProduct, LoadingState, ProductsState } from './contracts/state'
 
@@ -52,8 +54,19 @@ export const deleteProduct = (id: string): DeleteProductItemActionInterface => (
 	type: ProductActionsType.DELETE_PRODUCT,
 	id,
 })
+export const updateProduct = (id: string, data: any): UpdateProductActionInterface => ({
+	type: ProductActionsType.UPDATE_PRODUCT,
+	id,
+	data,
+})
+export const createProduct = (data: any): CreateProductActionInterface => ({
+	type: ProductActionsType.CREATE_PRODUCT,
+	data,
+})
 
 export type ProductsActions =
+	| CreateProductActionInterface
+	| UpdateProductActionInterface
 	| DeleteProductItemActionInterface
 	| SetProductFormDataActionInterface
 	| SetFilterActionInterface

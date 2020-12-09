@@ -27,6 +27,7 @@ class ProductController {
 
   async create(req: express.Request, res: express.Response): Promise<void> {
     try {
+      console.log(req.body)
       const product = new ProductModel(req.body);
 
       await product.save();

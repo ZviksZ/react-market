@@ -51,10 +51,33 @@ export function* deleteProductRequest({ id }: DeleteProductItemActionInterface) 
 		yield put(setGlobalMessage({ text: 'Deleting error. Try again', type: 'error' }))
 	}
 }
+export function* updateProductRequest({ id, data }: any) {
+	try {
+		yield call(ProductsApi.updateProduct, id, data)
+		yield call(fetchProductsRequest)
+
+		yield put(setGlobalMessage({ text: `Product ${id} has been updated`, type: 'success' }))
+	} catch (error) {
+		yield put(setGlobalMessage({ text: 'Updating error. Try again', type: 'error' }))
+	}
+}
+
+export function* createProductRequest({ data }: any) {
+	try {
+		yield call(ProductsApi.createProduct, data)
+		yield call(fetchProductsRequest)
+
+		yield put(setGlobalMessage({ text: `Product has been created`, type: 'success' }))
+	} catch (error) {
+		yield put(setGlobalMessage({ text: 'Creating error. Try again', type: 'error' }))
+	}
+}
 
 export function* productsSaga() {
 	yield takeLatest(ProductActionsType.FETCH_PRODUCTS, fetchProductsRequest)
 	yield takeLatest(ProductActionsType.GET_PRODUCT, getProductRequest)
 	yield takeLatest(ProductActionsType.GET_FILTER, getProductFilterRequest)
 	yield takeLatest(ProductActionsType.DELETE_PRODUCT, deleteProductRequest)
+	yield takeLatest(ProductActionsType.UPDATE_PRODUCT, updateProductRequest)
+	yield takeLatest(ProductActionsType.CREATE_PRODUCT, createProductRequest)
 }

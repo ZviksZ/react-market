@@ -5,7 +5,7 @@ export interface Product {
   name: string;
   price: number;
   text: string;
-  image: string;
+  image?: string;
   purchase: number;
   rating: number;
   category: string;
@@ -30,7 +30,7 @@ const ProductSchema = new Schema<Product>(
       type: String,
     },
     image: {
-      required: true,
+      required: false,
       type: String,
     },
     purchase: {

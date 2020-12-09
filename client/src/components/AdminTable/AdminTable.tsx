@@ -44,7 +44,7 @@ export const AdminTable: React.FC = () => {
 				</Table>
 			</TableContainer>
 			<ModalBlock visible={openForm} onClose={() => setOpenForm(false)} title="Product form add/update">
-				<AdminTableForm />
+				<AdminTableForm closeForm={setOpenForm}/>
 			</ModalBlock>
 		</>
 	)

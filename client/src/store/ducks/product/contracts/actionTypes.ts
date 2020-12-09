@@ -13,6 +13,7 @@ export enum ProductActionsType {
 	SET_PRODUCT_FORM_DATA = 'product/SET_PRODUCT_FORM_DATA',
 	UPDATE_PRODUCT = 'product/UPDATE_PRODUCT',
 	DELETE_PRODUCT = 'product/DELETE_PRODUCT',
+	CREATE_PRODUCT = 'product/CREATE_PRODUCT',
 }
 
 export interface SetProductsActionInterface extends Action<ProductActionsType> {
@@ -51,9 +52,14 @@ export interface SetProductFormDataActionInterface extends Action<ProductActions
 	type: ProductActionsType.SET_PRODUCT_FORM_DATA
 	payload: IProduct | null
 }
+export interface CreateProductActionInterface extends Action<ProductActionsType> {
+	type: ProductActionsType.CREATE_PRODUCT
+	data: any
+}
 export interface UpdateProductActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.UPDATE_PRODUCT
-	payload: IProduct
+	id: string
+	data: any
 }
 export interface DeleteProductItemActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.DELETE_PRODUCT
