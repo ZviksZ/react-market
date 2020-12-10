@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { axios } from '../../core/axios';
 import { IProduct } from '../../store/ducks/product/contracts/state'
 import { LoginData, RegisterData } from '../../store/ducks/auth/contracts/actionTypes'
 import { User } from '../../store/ducks/auth/contracts/state'

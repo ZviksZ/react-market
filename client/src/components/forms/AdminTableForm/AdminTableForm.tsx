@@ -9,13 +9,13 @@ import { NumberFormatCustom } from '../FormFields'
 import Box from '@material-ui/core/Box'
 import { Rating } from '@material-ui/lab'
 import Typography from '@material-ui/core/Typography'
-import { createProduct, updateProduct } from '../../../store/ducks/product/actionCreators'
+import { createProduct, setProductFormData, updateProduct } from '../../../store/ducks/product/actionCreators'
 
 interface IFormInputs {
 	name: string
-	price: number
-	purchase: number
-	diagonal: number
+	price: string
+	purchase: string
+	diagonal: string
 	category: string
 	color: string
 	text: string
@@ -25,7 +25,7 @@ type Props = {
 }
 export const AdminTableForm: React.FC<Props> = ({ closeForm }) => {
 	const dispatch = useDispatch()
-	const [files, setFiles] = useState<any>([])
+	const [files, setFiles] = useState<any>(null)
 	const [rating, setRating] = useState<number | null>(0)
 	const { productFormData } = useSelector(selectProducts)
 
@@ -33,22 +33,27 @@ export const AdminTableForm: React.FC<Props> = ({ closeForm }) => {
 
 	useEffect(() => {
 		productFormData && setRating(+productFormData.rating)
+
+		return () => {
+			dispatch(setProductFormData(null))
+		}
 	}, [productFormData])
 
 	const onSubmit = (data: IFormInputs) => {
+		console.log(data)
+		const formData = {
+			...data,
+			rating: (rating && +rating) || 0,
+			price: +data.price.split(' ').join(''),
+			purchase: +data.purchase.split(' ').join(''),
+			diagonal: +data.diagonal.split(' ').join(''),
+			image: (files && files[0]) || (productFormData && productFormData.image),
+		}
+
 		if (productFormData && productFormData._id) {
-			dispatch(updateProduct(productFormData._id, { ...data, rating, image: files[0] }))
+			dispatch(updateProduct(productFormData._id, formData))
 		} else {
-			dispatch(
-				createProduct({
-					...data,
-					price: +data.price,
-					purchase: +data.purchase,
-					diagonal: +data.diagonal,
-					rating,
-					/*image: files[0],*/
-				}),
-			)
+			dispatch(createProduct(formData))
 		}
 
 		closeForm(false)
@@ -57,7 +62,8 @@ export const AdminTableForm: React.FC<Props> = ({ closeForm }) => {
 	const fileUpload = (e: any) => {
 		const files = e.target.files
 		const filesArr = Array.prototype.slice.call(files)
-		setFiles([...files, ...filesArr])
+
+		setFiles(filesArr)
 	}
 
 	return (

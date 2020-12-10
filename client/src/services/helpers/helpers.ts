@@ -80,3 +80,23 @@ export const getChoosenFilter = (payload: any) => {
 
 	return data
 }
+
+
+export function setFormData(args: any) {
+	const formData = new FormData()
+
+	for (const key in args) {
+		if (Array.isArray(args[key])) {
+			for (let i = 0; i < args[key].length; i++) {
+				formData.append(key + '[]', args[key][i])
+			}
+		} else if (key == 'image') {
+			console.log('111')
+			formData.append(key, args[key])
+		} else {
+			formData.append(key, args[key])
+		}
+	}
+
+	return formData
+}

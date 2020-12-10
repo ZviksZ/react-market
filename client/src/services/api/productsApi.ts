@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { axios } from '../../core/axios'
 import { IProduct } from '../../store/ducks/product/contracts/state'
 
 interface Response<T> {
@@ -27,6 +27,10 @@ export const ProductsApi = {
 	},
 	async deleteProduct(id: string): Promise<IProduct> {
 		const { data } = await axios.delete<Response<IProduct>>(URI + id)
+		return data.data
+	},
+	async uploadProductImage(imageData: any): Promise<any> {
+		const { data } = await axios.post<Response<IProduct>>('/upload/', imageData)
 		return data.data
 	},
 }

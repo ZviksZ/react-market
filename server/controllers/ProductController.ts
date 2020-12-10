@@ -25,9 +25,9 @@ class ProductController {
     }
   }
 
-  async create(req: express.Request, res: express.Response): Promise<void> {
+  async create(req: any, res: express.Response): Promise<void> {
     try {
-      console.log(req.body)
+
       const product = new ProductModel(req.body);
 
       await product.save();
@@ -94,7 +94,7 @@ class ProductController {
     }
   }
 
-  async update(req: express.Request, res: express.Response): Promise<void> {
+  async update(req: any, res: express.Response): Promise<void> {
     try {
       const productId = req.params.id;
       const productUpdated = req.body;

@@ -3,7 +3,7 @@ import { setFilterDate, setProduct, setProducts, setProductsFilter, setProductsL
 import { DeleteProductItemActionInterface, GetProductActionInterface, ProductActionsType } from './contracts/actionTypes'
 import { IProduct, LoadingState } from './contracts/state'
 import { ProductsApi } from '../../../services/api/productsApi'
-import { getChoosenFilter, getFilterData } from '../../../services/helpers/helpers'
+import { getChoosenFilter, getFilterData, setFormData } from '../../../services/helpers/helpers'
 import { setGlobalMessage } from '../auth/actionCreators'
 
 export function* fetchProductsRequest() {
@@ -53,7 +53,14 @@ export function* deleteProductRequest({ id }: DeleteProductItemActionInterface) 
 }
 export function* updateProductRequest({ id, data }: any) {
 	try {
-		yield call(ProductsApi.updateProduct, id, data)
+		/*console.log(data)*/
+		const formData = new FormData()
+		const file = data.image
+		console.log(data.image)
+		formData.append('image', file)
+
+		const image = yield call(ProductsApi.uploadProductImage, formData)
+		yield call(ProductsApi.updateProduct, id, { ...data, image: image.path })
 		yield call(fetchProductsRequest)
 
 		yield put(setGlobalMessage({ text: `Product ${id} has been updated`, type: 'success' }))
@@ -64,7 +71,8 @@ export function* updateProductRequest({ id, data }: any) {
 
 export function* createProductRequest({ data }: any) {
 	try {
-		yield call(ProductsApi.createProduct, data)
+		const formData = setFormData({ ...data })
+		yield call(ProductsApi.createProduct, formData)
 		yield call(fetchProductsRequest)
 
 		yield put(setGlobalMessage({ text: `Product has been created`, type: 'success' }))
