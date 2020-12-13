@@ -22,9 +22,11 @@ export const NavbarCartItem: React.FC<Props> = ({ item }) => {
 	const deleteProduct = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		dispatch(deleteCartProduct(item._id))
 	}
+
+	const newImagePath = item?.image.replace(/\\/g, '/')
 	return (
 		<div className={s.cartItem}>
-			<div className={s.image} style={{ backgroundImage: 'url(' + item.image + ')' }}></div>
+			<div className={s.image} style={{ backgroundImage: 'url(/' + newImagePath + ')' }}></div>
 			<div className={s.info}>
 				<div className={s.left}>
 					<div className={s.name}>{item.name}</div>
