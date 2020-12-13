@@ -51,16 +51,16 @@ export function* deleteProductRequest({ id }: DeleteProductItemActionInterface) 
 		yield put(setGlobalMessage({ text: 'Deleting error. Try again', type: 'error' }))
 	}
 }
-export function* updateProductRequest({ id, data }: any) {
+export function* updateProductRequest({ id, data, isImageUpdated }: any) {
 	try {
-		/*console.log(data)*/
 		const formData = new FormData()
 		const file = data.image
-		console.log(data.image)
 		formData.append('image', file)
-
-		const image = yield call(ProductsApi.uploadProductImage, formData)
-		yield call(ProductsApi.updateProduct, id, { ...data, image: image.path })
+		let image
+		if (isImageUpdated) {
+			image = yield call(ProductsApi.uploadProductImage, formData)
+		}
+		yield call(ProductsApi.updateProduct, id, { ...data, image: (image && image.destination + image.filename) || data.iamge })
 		yield call(fetchProductsRequest)
 
 		yield put(setGlobalMessage({ text: `Product ${id} has been updated`, type: 'success' }))

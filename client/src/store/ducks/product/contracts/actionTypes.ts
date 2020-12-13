@@ -60,6 +60,7 @@ export interface UpdateProductActionInterface extends Action<ProductActionsType>
 	type: ProductActionsType.UPDATE_PRODUCT
 	id: string
 	data: any
+	isImageUpdated: boolean
 }
 export interface DeleteProductItemActionInterface extends Action<ProductActionsType> {
 	type: ProductActionsType.DELETE_PRODUCT

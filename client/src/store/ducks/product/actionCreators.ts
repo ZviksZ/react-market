@@ -54,10 +54,11 @@ export const deleteProduct = (id: string): DeleteProductItemActionInterface => (
 	type: ProductActionsType.DELETE_PRODUCT,
 	id,
 })
-export const updateProduct = (id: string, data: any): UpdateProductActionInterface => ({
+export const updateProduct = (id: string, data: any, isImageUpdated: boolean): UpdateProductActionInterface => ({
 	type: ProductActionsType.UPDATE_PRODUCT,
 	id,
 	data,
+	isImageUpdated
 })
 export const createProduct = (data: any): CreateProductActionInterface => ({
 	type: ProductActionsType.CREATE_PRODUCT,

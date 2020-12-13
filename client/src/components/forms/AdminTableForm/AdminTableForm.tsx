@@ -40,7 +40,6 @@ export const AdminTableForm: React.FC<Props> = ({ closeForm }) => {
 	}, [productFormData])
 
 	const onSubmit = (data: IFormInputs) => {
-		console.log(data)
 		const formData = {
 			...data,
 			rating: (rating && +rating) || 0,
@@ -51,7 +50,7 @@ export const AdminTableForm: React.FC<Props> = ({ closeForm }) => {
 		}
 
 		if (productFormData && productFormData._id) {
-			dispatch(updateProduct(productFormData._id, formData))
+			dispatch(updateProduct(productFormData._id, formData, !!files))
 		} else {
 			dispatch(createProduct(formData))
 		}

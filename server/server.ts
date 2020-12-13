@@ -18,20 +18,20 @@ app.use(passport.initialize());
 
 const storageConfig = multer.diskStorage({
   destination: (_: any, __: any, cb: any) => {
-    cb(null, "uploads");
+    cb(null, "uploads/");
   },
   filename: (_: any, file: any, cb: any) => {
     cb(null, file.originalname);
   },
 });
-
 app.use(express.static(__dirname));
 
+
 app.use(multer({ storage: storageConfig }).single("image"));
+
 app.post("/upload", function (req: any, res: any) {
-  console.log(req);
   const filedata = req.file;
-  console.log(filedata);
+
   if (!filedata) res.send("Ошибка при загрузке файла");
   else
     res.json({

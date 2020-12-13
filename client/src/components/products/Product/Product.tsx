@@ -23,10 +23,12 @@ export const Product: React.FC<Props> = ({ item, isHorizontal = false }) => {
 		dispatch(addProductToCart(item))
 	}
 
+	const newImagePath = item?.image.replace(/\\/g, '/')
+
 	return (
 		<>
 			<NavLink to={`/catalog/${item._id}`} className={cn(s.product, { [s.productHorizontal]: isHorizontal })}>
-				<div className={s.productImage} style={{ backgroundImage: 'url(' + item.image + ')' }}></div>
+				<div className={s.productImage} style={{ backgroundImage: 'url("/' + newImagePath + '")' }}></div>
 				<div className={s.productInfo}>
 					<h3 className={s.title}>{item.name}</h3>
 					<Rating name="read-only" value={item.rating} readOnly />

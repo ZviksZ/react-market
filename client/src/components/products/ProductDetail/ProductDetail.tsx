@@ -23,6 +23,8 @@ export const ProductDetail: React.FC<Props> = ({ item }) => {
 		}
 	}
 
+	const newImagePath = item?.image.replace(/\\/g, '/')
+
 	if (!item) {
 		return <Loader />
 	}
@@ -37,7 +39,7 @@ export const ProductDetail: React.FC<Props> = ({ item }) => {
 						to cart
 					</Button>
 				</div>
-				<div className={s.productImage} style={{ backgroundImage: 'url(' + item.image + ')' }}></div>
+				<div className={s.productImage} style={{ backgroundImage: `url("/${newImagePath}")` }}></div>
 				<h3 className="h3 mt mb">Description</h3>
 				<p className={s.productDesc}>{item.text}</p>
 				<h3 className="h3 mt mb">Characteristics</h3>
